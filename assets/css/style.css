@@ -172,8 +172,9 @@ h4 { font-family: var(--font-display); }
   display: grid; place-items: center;
   background: transparent; color: var(--brass);
   border: 1px solid var(--brass);
-  font: 600 0.72rem var(--font-mono); letter-spacing: 0.04em;
 }
+.brand .mark .mark-gauge { width: 25px; height: 25px; display: block; }
+.brand:hover .mark { border-color: var(--accent); }
 .brand small {
   display: block; font: 500 0.6rem var(--font-mono);
   color: var(--ink-faint); letter-spacing: 0.2em; text-transform: uppercase;

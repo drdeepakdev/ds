@@ -96,6 +96,25 @@ All revenue streams are wired but dormant. Activate each by editing
 - `sponsorEmail` / `buyMeACoffee` in `monetize.js`; About page carries the
   consulting CTA.
 
+## 🎯 Logo & brand mark
+
+The logo is a **precision gauge** — a dial with five graduations (one per
+certification domain) and a red needle taking a reading — echoing the site's
+"Calibrated Ledger" identity and the Credential Rule instrument.
+
+- **In-page:** an inline SVG inside the header bezel (`<span class="mark">`),
+  drawn in `currentColor` (brass) + `var(--accent)` (needle-red), so it recolours
+  itself in both light and dark themes automatically.
+- **`assets/logo.svg`** — horizontal lockup (mark + "Deepu Soman / ENGINEERING
+  NOTES") for social cards, email signatures, print, slide decks.
+- **`assets/mark.svg`** — square mark only, for avatars / app icons / favicons.
+- **Favicon** — the same gauge, inlined as a data-URI on every page (graphite
+  ground, brass gauge, red needle).
+
+To recolour the brand, change `--brass` and `--accent` in `assets/css/style.css`;
+the in-page mark and header follow automatically (the standalone SVG files and
+favicon carry hardcoded hex and would be updated by hand).
+
 ## 🚀 Deployment
 
 The folder is host-agnostic:
