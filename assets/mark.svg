@@ -1,8 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Deepu Soman mark">
-  <rect width="100" height="100" fill="#14181A"/>
-  <rect x="6" y="6" width="88" height="88" fill="none" stroke="#D9A648" stroke-width="1.5"/>
-  <text x="50" y="60" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-size="44" font-weight="700" letter-spacing="1" fill="#D9A648">DS</text>
-  <line x1="26" y1="76" x2="74" y2="76" stroke="#D9A648" stroke-width="4" stroke-linecap="round" opacity="0.5"/>
-  <line x1="65" y1="76" x2="65" y2="64" stroke="#FF6E5C" stroke-width="5" stroke-linecap="round"/>
-  <circle cx="65" cy="61" r="5" fill="#FF6E5C"/>
+  <rect width="100" height="100" fill="#1C3D5A"/>
+  <text x="50" y="61" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-weight="700" font-size="44" fill="#FBFAF7">DS</text>
+  <line x1="26" y1="77" x2="74" y2="77" stroke="#C79A3B" stroke-width="4" stroke-linecap="round" opacity="0.85"/>
+  <line x1="65" y1="77" x2="65" y2="65" stroke="#C79A3B" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="65" cy="62" r="5" fill="#C79A3B"/>
 </svg>
