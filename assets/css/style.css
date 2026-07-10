@@ -173,7 +173,7 @@ h4 { font-family: var(--font-display); }
   background: transparent; color: var(--brass);
   border: 1px solid var(--brass);
 }
-.brand .mark .mark-gauge { width: 25px; height: 25px; display: block; }
+.brand .mark .mark-ds { width: 27px; height: 27px; display: block; }
 .brand:hover .mark { border-color: var(--accent); }
 .brand small {
   display: block; font: 500 0.6rem var(--font-mono);
@@ -969,3 +969,64 @@ html[data-theme="light"] .article-body pre { color: #e9ece6; }
 .tag.warm { color: var(--ink-soft); border-color: var(--rule-strong); }
 .post-meta { display: flex; align-items: center; gap: 10px; font: 400 0.74rem var(--font-mono); color: var(--ink-faint); }
 .post-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--ink-faint); }
+
+/* ------------------------------------------------------------------ */
+/* Signal — field dispatches feed                                      */
+/* ------------------------------------------------------------------ */
+.signal-bar {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  border-top: 1px solid var(--rule-strong); border-bottom: 1px solid var(--rule-strong);
+  padding: 12px 0; margin-bottom: 34px;
+  font: 500 0.82rem var(--font-code); color: var(--ink-soft);
+}
+.signal-bar b { color: var(--ink); font-weight: 600; }
+.signal-bar .signal-sub { margin-left: auto; color: var(--accent); white-space: nowrap; }
+.live-dot {
+  width: 9px; height: 9px; border-radius: 50%; background: var(--accent); flex: 0 0 9px;
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 60%, transparent);
+  animation: livepulse 2.2s ease-out infinite;
+}
+@keyframes livepulse {
+  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 55%, transparent); }
+  70% { box-shadow: 0 0 0 7px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+@media (prefers-reduced-motion: reduce) { .live-dot { animation: none; } }
+
+.signal-feed { display: flex; flex-direction: column; }
+.dispatch {
+  padding: 30px 0; border-bottom: 1px solid var(--rule);
+  display: grid; grid-template-columns: 150px 1fr; gap: 8px 30px; align-items: start;
+}
+.dispatch:first-child { border-top: 1px solid var(--rule); }
+.dispatch-meta {
+  display: flex; flex-direction: column; gap: 10px;
+  position: sticky; top: 84px;
+}
+.dispatch-meta time {
+  font: 500 0.8rem var(--font-code); color: var(--ink-faint);
+  font-variant-numeric: tabular-nums; letter-spacing: 0.02em;
+}
+.stamp {
+  display: inline-block; width: fit-content;
+  font: 600 0.62rem var(--font-code); letter-spacing: 0.11em; text-transform: uppercase;
+  padding: 3px 9px; border: 1px solid var(--rule-strong); color: var(--ink-soft);
+}
+.stamp.sec { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 40%, transparent); }
+.stamp.gov { color: var(--brass); border-color: color-mix(in srgb, var(--brass) 45%, transparent); }
+.stamp.arch { color: var(--ink); border-color: var(--rule-strong); }
+.dispatch h2 { font-size: 1.32rem; line-height: 1.28; margin-bottom: 12px; }
+.dispatch p { color: color-mix(in srgb, var(--ink) 90%, var(--ink-soft)); margin-bottom: 14px; font-size: 0.98rem; }
+.dispatch-take {
+  border-left: 2px solid var(--accent); padding: 4px 0 4px 16px; margin: 0 0 14px;
+  font-size: 0.95rem;
+}
+.dispatch-take span {
+  display: block; font: 600 0.64rem var(--font-code); letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 4px;
+}
+.dispatch-src { font: 500 0.82rem var(--font-code); }
+@media (max-width: 720px) {
+  .dispatch { grid-template-columns: 1fr; gap: 12px; }
+  .dispatch-meta { position: static; flex-direction: row; align-items: center; gap: 12px; }
+}

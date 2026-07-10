@@ -9,6 +9,7 @@ Upload the folder to any web host and it runs.
 | Page | Purpose |
 |---|---|
 | `index.html` | Home — hero, featured articles, topic tracks, newsletter |
+| `signal.html` | **Signal** — auto-updatable feed of dated dispatches on the latest trends (cybersecurity, AI governance, audit, architecture); see AUTOMATION.md |
 | `blog.html` | Article hub with topic filters + live search |
 | `articles/*.html` | 8 full-length, code-first articles (AI agents, MCP, RAG, platform engineering, passkeys, serverless cost, .NET on Azure, WebAssembly) |
 | `credentials.html` | **Interactive certifications wall** — filterable, animated, data-driven from `assets/js/site-data.js` |
@@ -98,7 +99,7 @@ All revenue streams are wired but dormant. Activate each by editing
 
 ## 🎯 Logo & brand mark
 
-The logo is a **precision gauge** — a dial with five graduations (one per
+The logo is a **DS monogram + instrument needle** (a red needle taking a reading on a ledger rule beneath the initials) — a dial with five graduations (one per
 certification domain) and a red needle taking a reading — echoing the site's
 "Calibrated Ledger" identity and the Credential Rule instrument.
 
