@@ -1,43 +1,24 @@
-/* deepusoman.com — editorial UI behaviours
-   Theme (light default), mobile nav, back-to-top, header rule on scroll,
-   TOC highlight, code copy buttons, blog filters, footer year.
-   Nothing decorative; light is the default, dark is the toggle. */
+/* deepusoman.com — UI behaviours: theme, nav, progress, TOC, filters,
+   scroll reveals, copy buttons, back-to-top */
 (function () {
-  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  var SVG = {
-    menu: '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="square" aria-hidden="true"><line x1="2" y1="5.5" x2="18" y2="5.5"/><line x1="2" y1="10" x2="18" y2="10"/><line x1="2" y1="14.5" x2="18" y2="14.5"/></svg>',
-    theme: '<svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="1.25"/><path d="M10 2.5 A7.5 7.5 0 0 1 10 17.5 Z" fill="currentColor"/></svg>',
-    up: '<svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="square" aria-hidden="true"><line x1="10" y1="16" x2="10" y2="4"/><polyline points="5,9 10,4 15,9"/></svg>',
-    check: '<svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><polyline points="3,8.5 6.5,12 13,4"/></svg>'
-  };
-
-  /* Theme — light is the default; dark is opt-in and persisted ------- */
+  /* Theme ---------------------------------------------------------- */
   var saved = null;
   try { saved = localStorage.getItem("ds-theme"); } catch (e) {}
-  if (saved === "dark") document.documentElement.setAttribute("data-theme", "dark");
-  else if (saved === "light") document.documentElement.setAttribute("data-theme", "light");
-
-  function isDark() {
-    var attr = document.documentElement.getAttribute("data-theme");
-    if (attr === "dark") return true;
-    if (attr === "light") return false;
-    return window.matchMedia("(prefers-color-scheme: dark)").matches;
-  }
+  if (saved === "light") document.documentElement.setAttribute("data-theme", "light");
 
   function initThemeToggle() {
     document.querySelectorAll("[data-theme-toggle]").forEach(function (btn) {
-      if (!btn.querySelector("svg")) btn.innerHTML = SVG.theme;
       function paint() {
-        var dark = isDark();
-        btn.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
-        btn.setAttribute("data-theme-state", dark ? "dark" : "light");
+        var light = document.documentElement.getAttribute("data-theme") === "light";
+        btn.textContent = light ? "☾" : "☀";
+        btn.setAttribute("aria-label", light ? "Switch to dark mode" : "Switch to light mode");
       }
       paint();
       btn.addEventListener("click", function () {
-        var next = isDark() ? "light" : "dark";
-        document.documentElement.setAttribute("data-theme", next);
-        try { localStorage.setItem("ds-theme", next); } catch (e) {}
+        var light = document.documentElement.getAttribute("data-theme") === "light";
+        if (light) document.documentElement.removeAttribute("data-theme");
+        else document.documentElement.setAttribute("data-theme", "light");
+        try { localStorage.setItem("ds-theme", light ? "dark" : "light"); } catch (e) {}
         paint();
       });
     });
@@ -47,7 +28,6 @@
   function initNav() {
     var toggle = document.querySelector(".nav-toggle");
     var links = document.querySelector(".nav-links");
-    if (toggle && !toggle.querySelector("svg")) toggle.innerHTML = SVG.menu;
     if (toggle && links) {
       toggle.addEventListener("click", function () {
         links.classList.toggle("open");
@@ -56,14 +36,14 @@
     }
   }
 
-  /* Header rule + back-to-top on scroll ----------------------------- */
+  /* Header shadow + back-to-top on scroll ---------------------------- */
   function initScrollChrome() {
     var header = document.querySelector(".site-header");
     var toTop = document.createElement("button");
     toTop.className = "to-top";
     toTop.setAttribute("aria-label", "Back to top");
-    toTop.innerHTML = SVG.up;
-    toTop.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" }); });
+    toTop.textContent = "↑";
+    toTop.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });
     document.body.appendChild(toTop);
     function onScroll() {
       if (header) header.classList.toggle("scrolled", window.scrollY > 8);
@@ -73,7 +53,20 @@
     onScroll();
   }
 
-  /* TOC highlight --------------------------------------------------- */
+  /* Reading progress (articles) ------------------------------------- */
+  function initProgress() {
+    var bar = document.getElementById("progress");
+    var body = document.querySelector(".article-body");
+    if (!bar || !body) return;
+    window.addEventListener("scroll", function () {
+      var rect = body.getBoundingClientRect();
+      var total = rect.height - window.innerHeight;
+      var done = Math.min(Math.max(-rect.top, 0), total);
+      bar.style.width = (total > 0 ? (done / total) * 100 : 0) + "%";
+    }, { passive: true });
+  }
+
+  /* TOC highlight ---------------------------------------------------- */
   function initToc() {
     var links = document.querySelectorAll(".toc a[href^='#']");
     if (!links.length || !("IntersectionObserver" in window)) return;
@@ -94,7 +87,7 @@
     });
   }
 
-  /* Copy buttons on code blocks ------------------------------------- */
+  /* Copy buttons on code blocks --------------------------------------- */
   function initCopyButtons() {
     if (!navigator.clipboard) return;
     document.querySelectorAll(".article-body pre").forEach(function (pre) {
@@ -105,7 +98,7 @@
       btn.setAttribute("aria-label", "Copy code to clipboard");
       btn.addEventListener("click", function () {
         navigator.clipboard.writeText(pre.textContent.replace(/^copy\s*/, "")).then(function () {
-          btn.innerHTML = "copied " + SVG.check;
+          btn.textContent = "copied ✓";
           btn.classList.add("done");
           setTimeout(function () { btn.textContent = "copy"; btn.classList.remove("done"); }, 1600);
         });
@@ -114,7 +107,27 @@
     });
   }
 
-  /* Blog filters + search ------------------------------------------- */
+  /* Scroll reveals ----------------------------------------------------- */
+  function initReveals() {
+    var candidates = document.querySelectorAll(
+      ".post-card, .topic-tile, .res-card, .tl-item, .newsletter, .contact-list .item, .cert-card"
+    );
+    if (!candidates.length || !("IntersectionObserver" in window)) return;
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add("in"); obs.unobserve(en.target); }
+      });
+    }, { rootMargin: "0px 0px -8% 0px" });
+    candidates.forEach(function (el, i) {
+      el.classList.add("reveal");
+      el.style.transitionDelay = Math.min((i % 6) * 60, 300) + "ms";
+      obs.observe(el);
+    });
+  }
+
+  /* Blog filters + search -------------------------------------------- */
   function initFilters() {
     var chips = document.querySelectorAll(".chip[data-filter]");
     var cards = document.querySelectorAll("[data-post]");
@@ -145,6 +158,7 @@
       ch.setAttribute("aria-pressed", ch.classList.contains("active") ? "true" : "false");
       ch.addEventListener("click", function () { activate(ch); });
     });
+    // deep links: blog.html#t-ai etc. pre-select the matching filter
     var m = /^#t-([a-z]+)/.exec(location.hash || "");
     if (m) {
       var target = null;
@@ -152,10 +166,9 @@
       if (target) activate(target);
     }
     if (search) search.addEventListener("input", function () { term = search.value.trim().toLowerCase(); apply(); });
-    apply();
   }
 
-  /* Footer year ----------------------------------------------------- */
+  /* Footer year ------------------------------------------------------ */
   function initYear() {
     document.querySelectorAll("[data-year]").forEach(function (el) {
       el.textContent = new Date().getFullYear();
@@ -166,8 +179,10 @@
     initThemeToggle();
     initNav();
     initScrollChrome();
+    initProgress();
     initToc();
     initCopyButtons();
+    initReveals();
     initFilters();
     initYear();
   });
