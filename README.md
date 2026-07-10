@@ -1,4 +1,4 @@
-# deepusoman.com — Engineering Notes
+# deepusoman.com — IT Leadership & Certifications
 
 Personal technology blog & educational portal for **Deepu Soman**, built as a
 fast, dependency-free static site: no build step, no framework, no database.
@@ -11,8 +11,8 @@ Upload the folder to any web host and it runs.
 | `index.html` | Home — hero, featured articles, topic tracks, newsletter |
 | `signal.html` | **Signal** — auto-updatable feed of dated dispatches on the latest trends (cybersecurity, AI governance, audit, architecture); see AUTOMATION.md |
 | `blog.html` | Article hub with topic filters + live search |
-| `articles/*.html` | 8 full-length, code-first articles (AI agents, MCP, RAG, platform engineering, passkeys, serverless cost, .NET on Azure, WebAssembly) |
-| `credentials.html` | **Interactive certifications wall** — filterable, animated, data-driven from `assets/js/site-data.js` |
+| `articles/*.html` | 7 in-profile articles — 6 certification guides (PMP/PRINCE2, ISACA trio, CEH/CHFI, TOGAF, ITIL, the certification-stack essay) + Passkeys |
+| `credentials.html` | Grouped, filterable list of 20+ real certifications with IDs — data-driven from `assets/js/site-data.js` |
 | `community.html` | **MVP-evidence page** — timestamped contribution log (articles, talks, mentoring) |
 | `toolbox.html` | Recommended tools — affiliate-monetization surface |
 | `about.html` | Profile, focus areas, consulting CTA |
@@ -21,47 +21,14 @@ Upload the folder to any web host and it runs.
 | `rss.xml` / `sitemap.xml` / `robots.txt` / `ads.txt` | Syndication + SEO + ad verification |
 | `assets/js/monetize.js` | **The single money config file** — see below |
 
-## Design — "The Calibrated Ledger"
+## Design — quiet editorial
 
-The site is styled as a precision measuring instrument: a machined rule + audit
-ledger. Rules (hairlines + double head-rules) and paper-tint do the work cards
-and shadows used to — `box-shadow`, glassmorphism, blueprint grid and glow washes
-are all removed.
-
-- **Palette** (token-driven, both themes AA): dark = matte instrument-face
-  graphite `#14181A`; light = ledger-paper cream `#F4F1E7`. One pointer colour —
-  Needle Red (`--accent`) — used only where something is "reading" (active nav,
-  focus ring, primary button, the live needle). Ledger Green (`--verified`) for
-  links/PASS, Brass (`--brass`) for cert codes, folios and stamps.
-- **Type = three materials**: Archivo (engraved plate — headings/UI, width axis),
-  Source Serif 4 (ledger prose at a 76ch measure), IBM Plex Mono (every *measured*
-  number — dates, folios, tick labels — always `tabular-nums slashed-zero`). One
-  Google Fonts request; isolate code in the `--font-code` token.
-- **The Credential Rule** (signature, `assets/js/main.js` → `buildCredentialRule`):
-  an inline-SVG machined scale — 17 ticks in 5 domain bands with a red needle and a
-  live `aria-live` readout, exposed as a `role="listbox"` (roving focus,
-  `aria-activedescendant`, keyboard + pointer). It is **static-first**: the
-  server-rendered fallback list of all 17 certs is in the HTML, so no-JS / LCP /
-  `<640px` always see real content; JS enhances it and adds `.enhanced`. Clicking a
-  band drives the existing `aria-pressed` filter chips (single source of truth).
-  Built purely from `window.SITE_DATA` — edit `assets/js/site-data.js` only.
-- **The Register**: `blog.html` and the home lists are one continuous ruled ledger
-  — 48px baseline rows `[No. folio · date · title · domain stamp · read]`, grouped
-  under double-ruled domain headings whose counts re-tally on filter while the
-  canonical folio numbers keep their gaps (the gaps are the filter feedback).
-- **Icons**: every emoji is replaced by a drawn inline-SVG engraving
-  (`currentColor`, 1.25px stroke) or a typographic stamp — including the theme
-  toggle (half-shaded circle) and nav menu (three hairlines).
-- **Motion contract**: nothing moves unless a reading changed — needle travel on
-  selection, the credentials count-up on filter, article margin scroll-gauge. All
-  hover-lifts / staggered reveals removed; everything respects
-  `prefers-reduced-motion`.
-
-Still: dark-first with light-mode toggle, sticky table-of-contents on articles,
-skip link + `:focus-visible`, mobile responsive, JSON-LD structured data
-(Person + BlogPosting) on every page. Monetization plumbing (`.ad-slot`/`data-ad`,
-`monetize.js`, consent banner) is unchanged — ad regions are now ruled-off
-"Advertisement" ledger blocks.
+Light warm-paper by default (dark is an optional, persisted toggle), navy accent,
+Archivo headings + Source Serif 4 body + IBM Plex Mono labels. Separation by
+whitespace and 1px hairlines only — no shadows, gradients, textures or card-lift.
+Credential-forward and content-first, modelled on respected certification-educator
+blogs. Every page: skip link, `:focus-visible`, `aria-pressed` filters, `<nav>`
+landmark, `prefers-reduced-motion`, AA contrast in both themes, JSON-LD.
 
 ## 💰 Turning on the money (in order of payoff)
 
@@ -115,6 +82,44 @@ certification domain) and a red needle taking a reading — echoing the site's
 To recolour the brand, change `--brass` and `--accent` in `assets/css/style.css`;
 the in-page mark and header follow automatically (the standalone SVG files and
 favicon carry hardcoded hex and would be updated by hand).
+
+
+## 💵 PayPal support / donations
+
+Set `paypal.me` in `assets/js/monetize.js` to your PayPal.me handle (create one
+free at https://paypal.me). The **Support the site** block on the Contact page
+then shows quick-pick amount buttons + a "Support via PayPal" button. Optional:
+a hosted Donate button id in `paypal.donateButtonId`, or a Buy-Me-A-Coffee URL
+in `buyMeACoffee`. No PayPal config = the block stays hidden automatically.
+
+## 🖱️ Pay-per-click (PPC)
+
+Google AdSense **is** the pay-per-click engine — you earn per valid click and per
+impression. Turn it on by pasting the publisher id into `adsensePublisherId`
+(step 1 above). An alternative/second network, **Media.net** (Bing/Yahoo
+contextual), is also wired: set `medianet.cid`/`crid`. Ad slots are placed on the
+home, articles, credentials and signal pages and are styled as quiet
+"Advertisement" blocks until activated.
+
+## 🔎 SEO / SEM
+
+Already built in, every page:
+- Unique `<title>` + meta description, `author`, `keywords`, and
+  `robots: index,follow,max-image-preview:large`.
+- Open Graph + Twitter `summary_large_image` cards, sharing `assets/og-image.png`
+  (1200×630). Regenerate that image from `scratchpad/og.html` if you rebrand.
+- Structured data (JSON-LD): `WebSite` (+ SearchAction for the Google sitelinks
+  search box) and `Person` on the home page; `BlogPosting` on every article;
+  `BreadcrumbList` on articles.
+- `sitemap.xml`, `robots.txt`, `rss.xml` kept in sync with the live pages.
+
+To finish SEO/SEM setup after launch:
+1. Verify the domain in **Google Search Console** and submit `sitemap.xml`.
+2. Paste your **GA4** id (`ga4Id`) and/or **Google Tag Manager** id (`gtmId`) in
+   `monetize.js` — GTM is what you use to record **Google Ads / SEM conversions**
+   and build remarketing audiences.
+3. For SEM campaigns, point Google Ads at the cert-topic pages (each article
+   targets a real search term — "PMP vs PRINCE2", "CISA CISM CRISC", etc.).
 
 ## 🚀 Deployment
 

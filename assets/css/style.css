@@ -796,3 +796,7 @@ nav.main-nav { display: contents; }
   * { transition: none !important; animation: none !important; }
   html { scroll-behavior: auto; }
 }
+
+/* Support / PayPal widget --------------------------------------------- */
+.support-widget .support-amts{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.support-widget .btn{min-width:56px;justify-content:center}

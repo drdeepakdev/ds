@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-  <title>Deepu Soman — Engineering Notes</title>
+  <title>Deepu Soman — IT Leadership & Certifications</title>
   <link>https://deepusoman.com</link>
-  <description>Practical, in-depth engineering articles on AI agents, cloud architecture, platform engineering and modern software delivery.</description>
+  <description>Practical guides on IT infrastructure, project delivery, cyber security and the certifications that map them — from a 20-year IT leader.</description>
   <language>en</language>
   <atom:link href="https://deepusoman.com/rss.xml" rel="self" type="application/rss+xml"/>
   <lastBuildDate>Thu, 09 Jul 2026 09:00:00 +0000</lastBuildDate>
