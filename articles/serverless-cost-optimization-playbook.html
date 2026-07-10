@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Serverless Cost Optimisation Playbook — Deepu Soman</title>
+<meta name="description" content="Serverless is cheap until it isn't. Nine concrete levers — right-sizing memory, killing chatty fan-outs, caching, batching — to cut your functions bill.">
+<link rel="canonical" href="https://deepusoman.com/articles/serverless-cost-optimization-playbook.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Serverless Cost Optimisation Playbook">
+<meta property="og:description" content="Serverless is cheap until it isn't. Nine concrete levers — right-sizing memory, killing chatty fan-outs, caching, batching — to cut your functions bill.">
+<meta property="og:url" content="https://deepusoman.com/articles/serverless-cost-optimization-playbook.html">
+<meta property="article:published_time" content="2026-04-27">
+<meta property="article:author" content="Deepu Soman">
+<link rel="alternate" type="application/rss+xml" title="Deepu Soman — RSS" href="https://deepusoman.com/rss.xml">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230891b2'/><text x='50' y='68' font-size='48' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>DS</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "The Serverless Cost Optimisation Playbook",
+  "description": "Serverless is cheap until it isn't. Nine concrete levers — right-sizing memory, killing chatty fan-outs, caching, batching — to cut your functions bill.",
+  "author": {"@type": "Person", "name": "Deepu Soman", "url": "https://deepusoman.com/about.html"},
+  "datePublished": "2026-04-27",
+  "mainEntityOfPage": "https://deepusoman.com/articles/serverless-cost-optimization-playbook.html"
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div id="progress"></div>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="../index.html"><span class="mark">DS</span><span>Deepu Soman<small>Engineering Notes</small></span></a>
+    <button class="icon-btn nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../blog.html" class="active">Articles</a></li>
+      <li><a href="../credentials.html">Credentials</a></li>
+      <li><a href="../community.html">Community</a></li>
+      <li><a href="../toolbox.html">Toolbox</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <button class="icon-btn theme" data-theme-toggle aria-label="Toggle theme">☀</button>
+  </div>
+</header>
+
+<main id="main" class="wrap article-shell">
+  <article class="article">
+    <div class="article-head">
+      <div class="tags"><span class="tag alt">Cloud</span><span class="tag warm">FinOps</span></div>
+      <h1>The Serverless Cost Optimisation Playbook</h1>
+      <p class="standfirst">Serverless bills are made of millions of tiny decisions nobody reviewed. The good news: they're also fixed by a handful of big levers. Here are the nine I reach for, roughly in order of payoff.</p>
+      <div class="byline">
+        <div class="avatar">DS</div>
+        <div><b>Deepu Soman</b><span>Published Apr 27, 2026 · 11 min read</span></div>
+        <div class="share">
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdeepusoman.com%2Farticles%2Fserverless-cost-optimization-playbook.html" target="_blank" rel="noopener" aria-label="Share on LinkedIn">in</a>
+          <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdeepusoman.com%2Farticles%2Fserverless-cost-optimization-playbook.html" target="_blank" rel="noopener" aria-label="Share on X">𝕏</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="article-body">
+      <p>Serverless pricing feels like a rounding error — fractions of a cent per invocation — right up until the invoice arrives with eight digits after the currency symbol. The pattern is always the same: no single expensive thing, just staggering volume multiplied by small inefficiencies. Which means optimisation is also mechanical: find the multipliers, shrink them.</p>
+
+      <h2 id="model">1. First, actually know the cost model</h2>
+      <p>For function platforms (AWS Lambda, Azure Functions, Cloud Functions) you pay roughly: <strong>invocations × duration × memory</strong>, plus the services around them — API gateways, queues, storage operations, egress, and logging. Two implications people miss:</p>
+      <ul>
+        <li>The bill is often <em>not</em> dominated by compute. Log ingestion and per-request gateway charges regularly exceed the function cost itself.</li>
+        <li>Duration is billed while you <em>wait</em>. A function idling 800ms on a downstream API pays for 800ms of memory-seconds doing nothing.</li>
+      </ul>
+
+      <h2 id="levers">2. The nine levers</h2>
+      <ol>
+        <li><strong>Right-size memory.</strong> Memory and CPU scale together; more memory can finish faster and cost <em>less</em>. Run a power-tuning sweep per function instead of guessing. Typical finding: half your functions are over-provisioned, a few critical ones are under.</li>
+        <li><strong>Kill chatty fan-outs.</strong> One request that triggers 40 downstream invocations (function → queue → function → …) pays 40 sets of per-invocation overhead. Collapse internal hops; a function calling a library beats a function calling a function.</li>
+        <li><strong>Batch everything batchable.</strong> Process queue messages 25 at a time instead of 1. Same work, 1/25th of the invocation and polling overhead.</li>
+        <li><strong>Cache at the edge of your system.</strong> A 60-second cache on a hot read endpoint can remove millions of invocations a day. Users can't tell; your bill can.</li>
+        <li><strong>Tame your logs.</strong> Structured logs at INFO for the 0.1% of requests that matter (errors, samples), not debug dumps for all of them. Log ingestion is the most common "why is this line item huge?" answer.</li>
+        <li><strong>Shorten timeouts, fail fast.</strong> A 30s timeout on a function that should finish in 2s means bugs and retry storms bill you 15× worst-case.</li>
+        <li><strong>Move steady load off serverless.</strong> Serverless wins on spiky and low duty-cycle traffic. A function running near-continuously is a container's job at a fraction of the price. Do the crossover math per workload.</li>
+        <li><strong>Async by default.</strong> If the caller doesn't need the answer now, queue it — you smooth spikes, batch better, and stop paying for synchronous waiting.</li>
+        <li><strong>Delete zombie infrastructure.</strong> Scheduled functions for features that shipped two roadmaps ago, debug queues, orphaned storage triggers. Audit quarterly; the savings are embarrassing.</li>
+      </ol>
+
+      <div class="ad-slot in-article" data-ad="inArticle" aria-label="Advertisement">
+        <div class="ad-note">Advertisement<b>In-article ad slot — configure in assets/js/monetize.js</b></div>
+      </div>
+
+      <h2 id="arch">3. Architecture-level wins</h2>
+      <p>The biggest saves come from moving work, not tuning it:</p>
+      <pre><span class="c"># Before: pay per read, forever</span>
+client → API gateway → function → database        <span class="c"># every single time</span>
+
+<span class="c"># After: pay once per change</span>
+change event → function → render to object storage/CDN
+client → CDN                                       <span class="c"># ~free at scale</span></pre>
+      <p>Precompute-on-write beats compute-on-read whenever reads dominate writes — which for content, dashboards and catalogs is almost always. The serverless part of your system shrinks to the write path, and the read path becomes static delivery.</p>
+
+      <h2 id="guardrails">4. Guardrails so it never surprises you again</h2>
+      <ul>
+        <li><strong>Budgets with alerts</strong> at 50/80/100% of expected spend, per environment. A test loop invoking a function recursively should page someone before it pages the CFO.</li>
+        <li><strong>Cost per business transaction</strong> as a tracked metric ("cost per order processed"), so growth and waste stop being conflated.</li>
+        <li><strong>Concurrency limits</strong> on every function. They're your circuit breaker when a retry storm or infinite loop hits.</li>
+        <li><strong>Tag everything</strong> by service and team, or the bill stays a mystery novel.</li>
+      </ul>
+      <p>Serverless remains the right default for spiky, event-driven work — the economics are genuinely good. They just aren't <em>unconditionally</em> good. Treat cost as a first-class non-functional requirement, review it like you review performance, and the platform keeps its promise.</p>
+    </div>
+
+    <div class="author-box">
+      <div class="avatar">DS</div>
+      <div>
+        <h4>Deepu Soman</h4>
+        <p>Technology professional writing about AI engineering, cloud architecture and modern software delivery. Learning in public on the road to Microsoft MVP.</p>
+        <div class="links"><a href="../about.html">About</a><a href="https://www.linkedin.com/in/deepusoman/" target="_blank" rel="noopener">LinkedIn</a><a href="../rss.xml">RSS</a></div>
+      </div>
+    </div>
+
+    <nav class="post-nav" aria-label="More articles">
+      <a href="passkeys-life-after-passwords.html"><span>← Previous</span><b>Passkeys: Life After Passwords</b></a>
+      <a class="next" href="cloud-native-dotnet-on-azure.html"><span>Next →</span><b>Cloud-Native .NET on Azure: A 2026 Reference Stack</b></a>
+    </nav>
+  </article>
+
+  <aside class="article-aside">
+    <div class="aside-sticky">
+      <div class="toc">
+        <h4>In this article</h4>
+        <ol>
+          <li><a href="#model">1 · Know the cost model</a></li>
+          <li><a href="#levers">2 · The nine levers</a></li>
+          <li><a href="#arch">3 · Architecture-level wins</a></li>
+          <li><a href="#guardrails">4 · Guardrails</a></li>
+        </ol>
+      </div>
+      <div class="ad-slot sidebar-ad" data-ad="sidebar" aria-label="Advertisement">
+        <div class="ad-note">Advertisement<b>Sidebar ad slot</b></div>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-about">
+      <a class="brand" href="../index.html"><span class="mark">DS</span><span>Deepu Soman<small>Engineering Notes</small></span></a>
+      <p>Practical writing on AI, cloud and platform engineering — learning in public on the road to Microsoft MVP.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="../blog.html">All articles</a></li>
+        <li><a href="../community.html">Community & talks</a></li>
+        <li><a href="../toolbox.html">Toolbox</a></li>
+        <li><a href="../about.html">About</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Tracks</h4>
+      <ul>
+        <li><a href="../blog.html">AI Engineering</a></li>
+        <li><a href="../blog.html">Cloud & Azure</a></li>
+        <li><a href="../blog.html">Platform Engineering</a></li>
+        <li><a href="../blog.html">Security</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="https://www.linkedin.com/in/deepusoman/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="../contact.html">Email</a></li>
+        <li><a href="../rss.xml">RSS feed</a></li>
+        <li><a href="../privacy.html">Privacy policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© <span data-year>2026</span> Deepu Soman. All rights reserved.</span>
+    <span>Built for the community · <a href="../rss.xml">RSS</a> · <a href="../sitemap.xml">Sitemap</a></span>
+  </div>
+</footer>
+
+<div class="consent" id="consent" role="dialog" aria-label="Cookie consent">
+  <p>This site uses cookies for advertising (Google AdSense) to keep the content free. You can accept or decline — articles work either way.</p>
+  <button class="btn btn-ghost" data-consent="decline">Decline</button>
+  <button class="btn btn-primary" data-consent="accept">Accept</button>
+</div>
+
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/monetize.js"></script>
+</body>
+</html>

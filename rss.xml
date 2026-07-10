@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Deepu Soman — Engineering Notes</title>
+  <link>https://deepusoman.com</link>
+  <description>Practical, in-depth engineering articles on AI agents, cloud architecture, platform engineering and modern software delivery.</description>
+  <language>en</language>
+  <atom:link href="https://deepusoman.com/rss.xml" rel="self" type="application/rss+xml"/>
+  <lastBuildDate>Mon, 06 Jul 2026 09:00:00 +0000</lastBuildDate>
+
+  <item>
+    <title>Shipping AI Agents to Production: What the Demos Don't Tell You</title>
+    <link>https://deepusoman.com/articles/shipping-ai-agents-to-production.html</link>
+    <guid>https://deepusoman.com/articles/shipping-ai-agents-to-production.html</guid>
+    <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
+    <description>Agent demos are easy; agent reliability is hard. A field guide to guardrails, evals, human-in-the-loop design and cost control for production agent systems.</description>
+  </item>
+  <item>
+    <title>MCP: The USB-C Moment for AI Integrations</title>
+    <link>https://deepusoman.com/articles/mcp-usb-c-of-ai-integrations.html</link>
+    <guid>https://deepusoman.com/articles/mcp-usb-c-of-ai-integrations.html</guid>
+    <pubDate>Mon, 22 Jun 2026 09:00:00 +0000</pubDate>
+    <description>Why the Model Context Protocol became the standard way to connect LLMs to tools and data — and how to build and secure your first MCP server.</description>
+  </item>
+  <item>
+    <title>RAG in 2026: Beyond Naive Retrieval</title>
+    <link>https://deepusoman.com/articles/rag-in-2026-beyond-naive-retrieval.html</link>
+    <guid>https://deepusoman.com/articles/rag-in-2026-beyond-naive-retrieval.html</guid>
+    <pubDate>Mon, 08 Jun 2026 09:00:00 +0000</pubDate>
+    <description>Hybrid retrieval, re-ranking, agentic RAG and the evaluation loop that keeps LLM answers honest.</description>
+  </item>
+  <item>
+    <title>Platform Engineering: Building Your First Internal Developer Platform</title>
+    <link>https://deepusoman.com/articles/platform-engineering-first-idp.html</link>
+    <guid>https://deepusoman.com/articles/platform-engineering-first-idp.html</guid>
+    <pubDate>Mon, 25 May 2026 09:00:00 +0000</pubDate>
+    <description>Golden paths, not golden cages. How small teams get 80% of the IDP value with a service catalog, templates and paved-road CI/CD.</description>
+  </item>
+  <item>
+    <title>Passkeys: Life After Passwords</title>
+    <link>https://deepusoman.com/articles/passkeys-life-after-passwords.html</link>
+    <guid>https://deepusoman.com/articles/passkeys-life-after-passwords.html</guid>
+    <pubDate>Mon, 11 May 2026 09:00:00 +0000</pubDate>
+    <description>Phishing-resistant sign-in is finally mainstream. How passkeys work under the hood, plus a pragmatic rollout plan for your product.</description>
+  </item>
+  <item>
+    <title>The Serverless Cost Optimisation Playbook</title>
+    <link>https://deepusoman.com/articles/serverless-cost-optimization-playbook.html</link>
+    <guid>https://deepusoman.com/articles/serverless-cost-optimization-playbook.html</guid>
+    <pubDate>Mon, 27 Apr 2026 09:00:00 +0000</pubDate>
+    <description>Nine concrete levers — right-sizing memory, killing chatty fan-outs, caching, batching — to cut your serverless bill.</description>
+  </item>
+  <item>
+    <title>Cloud-Native .NET on Azure: A 2026 Reference Stack</title>
+    <link>https://deepusoman.com/articles/cloud-native-dotnet-on-azure.html</link>
+    <guid>https://deepusoman.com/articles/cloud-native-dotnet-on-azure.html</guid>
+    <pubDate>Mon, 13 Apr 2026 09:00:00 +0000</pubDate>
+    <description>.NET Aspire, Azure Container Apps, managed identities and OpenTelemetry — an opinionated reference stack for Microsoft-platform teams.</description>
+  </item>
+  <item>
+    <title>WebAssembly Beyond the Browser</title>
+    <link>https://deepusoman.com/articles/webassembly-beyond-the-browser.html</link>
+    <guid>https://deepusoman.com/articles/webassembly-beyond-the-browser.html</guid>
+    <pubDate>Mon, 30 Mar 2026 09:00:00 +0000</pubDate>
+    <description>Wasm as a universal, sandboxed runtime: plugin systems, edge compute and the component model, with honest trade-offs.</description>
+  </item>
+</channel>
+</rss>

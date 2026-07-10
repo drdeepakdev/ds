@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MCP: The USB-C Moment for AI Integrations — Deepu Soman</title>
+<meta name="description" content="Why the Model Context Protocol became the standard way to connect LLMs to tools and data — and how to build and secure your first MCP server.">
+<link rel="canonical" href="https://deepusoman.com/articles/mcp-usb-c-of-ai-integrations.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MCP: The USB-C Moment for AI Integrations">
+<meta property="og:description" content="Why the Model Context Protocol became the standard way to connect LLMs to tools and data — and how to build and secure your first MCP server.">
+<meta property="og:url" content="https://deepusoman.com/articles/mcp-usb-c-of-ai-integrations.html">
+<meta property="article:published_time" content="2026-06-22">
+<meta property="article:author" content="Deepu Soman">
+<link rel="alternate" type="application/rss+xml" title="Deepu Soman — RSS" href="https://deepusoman.com/rss.xml">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230891b2'/><text x='50' y='68' font-size='48' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>DS</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "MCP: The USB-C Moment for AI Integrations",
+  "description": "Why the Model Context Protocol became the standard way to connect LLMs to tools and data — and how to build and secure your first MCP server.",
+  "author": {"@type": "Person", "name": "Deepu Soman", "url": "https://deepusoman.com/about.html"},
+  "datePublished": "2026-06-22",
+  "mainEntityOfPage": "https://deepusoman.com/articles/mcp-usb-c-of-ai-integrations.html"
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div id="progress"></div>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="../index.html"><span class="mark">DS</span><span>Deepu Soman<small>Engineering Notes</small></span></a>
+    <button class="icon-btn nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../blog.html" class="active">Articles</a></li>
+      <li><a href="../credentials.html">Credentials</a></li>
+      <li><a href="../community.html">Community</a></li>
+      <li><a href="../toolbox.html">Toolbox</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <button class="icon-btn theme" data-theme-toggle aria-label="Toggle theme">☀</button>
+  </div>
+</header>
+
+<main id="main" class="wrap article-shell">
+  <article class="article">
+    <div class="article-head">
+      <div class="tags"><span class="tag">AI Engineering</span><span class="tag alt">Protocols</span></div>
+      <h1>MCP: The USB-C Moment for AI Integrations</h1>
+      <p class="standfirst">Before USB-C, every device shipped its own cable. Before the Model Context Protocol, every AI app shipped its own bespoke integration for every tool. MCP collapsed that N×M mess into N+M — and if you build software, you'll want to speak it.</p>
+      <div class="byline">
+        <div class="avatar">DS</div>
+        <div><b>Deepu Soman</b><span>Published Jun 22, 2026 · 11 min read</span></div>
+        <div class="share">
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdeepusoman.com%2Farticles%2Fmcp-usb-c-of-ai-integrations.html" target="_blank" rel="noopener" aria-label="Share on LinkedIn">in</a>
+          <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdeepusoman.com%2Farticles%2Fmcp-usb-c-of-ai-integrations.html" target="_blank" rel="noopener" aria-label="Share on X">𝕏</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="article-body">
+      <p>Every generation of computing gets its interoperability moment. Databases got ODBC, the web got REST, and AI assistants got the <strong>Model Context Protocol</strong> — an open standard, introduced by Anthropic in late 2024 and since adopted across the industry, that defines how AI applications discover and call external tools, read data sources, and use prompt templates.</p>
+
+      <h2 id="problem">1. The N×M problem</h2>
+      <p>Suppose you have M AI applications (a chat assistant, an IDE agent, an internal copilot) and N systems they should reach (GitHub, your CRM, a database, Slack). Without a standard, that's N×M custom integrations, each with its own auth, schemas and bugs. Every new assistant repeats all N integrations; every new tool must court every assistant.</p>
+      <p>MCP restructures this: each system exposes <strong>one MCP server</strong>; each AI app implements <strong>one MCP client</strong>. N+M pieces, and everything composes. That's the same economics that made USB-C inevitable — which is why adoption was so fast once the big model vendors and IDEs shipped clients.</p>
+
+      <h2 id="how">2. How MCP works</h2>
+      <p>MCP is JSON-RPC over a transport (stdio for local servers, streamable HTTP for remote ones). A server advertises three kinds of capability:</p>
+      <ul>
+        <li><strong>Tools</strong> — functions the model may call, each with a JSON Schema for arguments (<code>search_orders</code>, <code>create_ticket</code>).</li>
+        <li><strong>Resources</strong> — readable data addressed by URI (<code>file:///readme</code>, <code>crm://accounts/42</code>), for context rather than action.</li>
+        <li><strong>Prompts</strong> — reusable, parameterised prompt templates the client can surface to users.</li>
+      </ul>
+      <p>The client (the AI app) lists capabilities at connect time, presents them to the model, executes the model's calls, and streams results back. Crucially, the <em>host application</em> stays in charge: it decides which servers to connect, which tools to expose, and when to ask the human for approval.</p>
+
+      <div class="ad-slot in-article" data-ad="inArticle" aria-label="Advertisement">
+        <div class="ad-note">Advertisement<b>In-article ad slot — configure in assets/js/monetize.js</b></div>
+      </div>
+
+      <h2 id="build">3. Build a server in an afternoon</h2>
+      <p>The official SDKs make a minimal server almost boilerplate-free. Here's a TypeScript server exposing one tool:</p>
+      <pre><span class="k">import</span> { McpServer } <span class="k">from</span> <span class="s">"@modelcontextprotocol/sdk/server/mcp.js"</span>;
+<span class="k">import</span> { StdioServerTransport } <span class="k">from</span> <span class="s">"@modelcontextprotocol/sdk/server/stdio.js"</span>;
+<span class="k">import</span> { z } <span class="k">from</span> <span class="s">"zod"</span>;
+
+<span class="k">const</span> server = <span class="k">new</span> <span class="f">McpServer</span>({ name: <span class="s">"orders"</span>, version: <span class="s">"1.0.0"</span> });
+
+server.<span class="f">tool</span>(
+  <span class="s">"search_orders"</span>,
+  <span class="s">"Search customer orders by email or order id"</span>,
+  { query: z.<span class="f">string</span>().<span class="f">describe</span>(<span class="s">"email or order id"</span>) },
+  <span class="k">async</span> ({ query }) => {
+    <span class="k">const</span> rows = <span class="k">await</span> db.<span class="f">searchOrders</span>(query);
+    <span class="k">return</span> { content: [{ type: <span class="s">"text"</span>, text: JSON.<span class="f">stringify</span>(rows) }] };
+  }
+);
+
+<span class="k">await</span> server.<span class="f">connect</span>(<span class="k">new</span> <span class="f">StdioServerTransport</span>());</pre>
+      <p>Point any MCP-capable client at that binary and the model can now search orders — no custom plugin system, no per-assistant glue. The same server works in your IDE agent, your support copilot and your CLI.</p>
+      <p>Design advice from servers I've built and reviewed:</p>
+      <ul>
+        <li><strong>Fewer, richer tools.</strong> Ten overlapping CRUD tools confuse models; three task-shaped tools (<code>find</code>, <code>summarise</code>, <code>act</code>) perform better.</li>
+        <li><strong>Descriptions are prompts.</strong> The tool description is the model's only manual — write it like documentation, with examples and constraints.</li>
+        <li><strong>Return errors as data.</strong> A structured <code>{"error": "not_found"}</code> teaches the model to recover; a thrown exception teaches it nothing.</li>
+      </ul>
+
+      <h2 id="security">4. Security notes you cannot skip</h2>
+      <p>An MCP server is an API gateway with a very persuadable client on the other end. Treat it that way:</p>
+      <ol>
+        <li><strong>AuthN/AuthZ live in the server.</strong> Never trust the model to enforce who can see what. Remote servers should use OAuth and scope tokens per user.</li>
+        <li><strong>Beware tool poisoning.</strong> A malicious server's tool descriptions enter the model's context — vet third-party servers like you vet npm packages.</li>
+        <li><strong>Least privilege by default.</strong> Read-only tools separated from mutating ones, so hosts can expose safe subsets.</li>
+      </ol>
+
+      <h2 id="bet">5. Where this goes</h2>
+      <p>The interesting shift is organisational: teams now ship an MCP server <em>alongside</em> their REST API, the way they once shipped an SDK. Your service's "AI surface" is becoming a first-class product interface — designed, versioned and documented for a model audience as much as a human one. If you own a platform, the question is no longer <em>whether</em> to expose it to agents, but how well.</p>
+      <p><em>Building an MCP server for your product? <a href="../contact.html">Tell me about it</a> — I collect real-world examples for future posts.</em></p>
+    </div>
+
+    <div class="author-box">
+      <div class="avatar">DS</div>
+      <div>
+        <h4>Deepu Soman</h4>
+        <p>Technology professional writing about AI engineering, cloud architecture and modern software delivery. Learning in public on the road to Microsoft MVP.</p>
+        <div class="links"><a href="../about.html">About</a><a href="https://www.linkedin.com/in/deepusoman/" target="_blank" rel="noopener">LinkedIn</a><a href="../rss.xml">RSS</a></div>
+      </div>
+    </div>
+
+    <nav class="post-nav" aria-label="More articles">
+      <a href="shipping-ai-agents-to-production.html"><span>← Previous</span><b>Shipping AI Agents to Production: What the Demos Don't Tell You</b></a>
+      <a class="next" href="rag-in-2026-beyond-naive-retrieval.html"><span>Next →</span><b>RAG in 2026: Beyond Naive Retrieval</b></a>
+    </nav>
+  </article>
+
+  <aside class="article-aside">
+    <div class="aside-sticky">
+      <div class="toc">
+        <h4>In this article</h4>
+        <ol>
+          <li><a href="#problem">1 · The N×M problem</a></li>
+          <li><a href="#how">2 · How MCP works</a></li>
+          <li><a href="#build">3 · Build a server</a></li>
+          <li><a href="#security">4 · Security notes</a></li>
+          <li><a href="#bet">5 · Where this goes</a></li>
+        </ol>
+      </div>
+      <div class="ad-slot sidebar-ad" data-ad="sidebar" aria-label="Advertisement">
+        <div class="ad-note">Advertisement<b>Sidebar ad slot</b></div>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-about">
+      <a class="brand" href="../index.html"><span class="mark">DS</span><span>Deepu Soman<small>Engineering Notes</small></span></a>
+      <p>Practical writing on AI, cloud and platform engineering — learning in public on the road to Microsoft MVP.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="../blog.html">All articles</a></li>
+        <li><a href="../community.html">Community & talks</a></li>
+        <li><a href="../toolbox.html">Toolbox</a></li>
+        <li><a href="../about.html">About</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Tracks</h4>
+      <ul>
+        <li><a href="../blog.html">AI Engineering</a></li>
+        <li><a href="../blog.html">Cloud & Azure</a></li>
+        <li><a href="../blog.html">Platform Engineering</a></li>
+        <li><a href="../blog.html">Security</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="https://www.linkedin.com/in/deepusoman/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="../contact.html">Email</a></li>
+        <li><a href="../rss.xml">RSS feed</a></li>
+        <li><a href="../privacy.html">Privacy policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© <span data-year>2026</span> Deepu Soman. All rights reserved.</span>
+    <span>Built for the community · <a href="../rss.xml">RSS</a> · <a href="../sitemap.xml">Sitemap</a></span>
+  </div>
+</footer>
+
+<div class="consent" id="consent" role="dialog" aria-label="Cookie consent">
+  <p>This site uses cookies for advertising (Google AdSense) to keep the content free. You can accept or decline — articles work either way.</p>
+  <button class="btn btn-ghost" data-consent="decline">Decline</button>
+  <button class="btn btn-primary" data-consent="accept">Accept</button>
+</div>
+
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/monetize.js"></script>
+</body>
+</html>

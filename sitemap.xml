@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://deepusoman.com/</loc><lastmod>2026-07-10</lastmod><priority>1.0</priority></url>
+  <url><loc>https://deepusoman.com/blog.html</loc><lastmod>2026-07-10</lastmod><priority>0.9</priority></url>
+  <url><loc>https://deepusoman.com/credentials.html</loc><lastmod>2026-07-10</lastmod><priority>0.8</priority></url>
+  <url><loc>https://deepusoman.com/about.html</loc><lastmod>2026-07-10</lastmod><priority>0.7</priority></url>
+  <url><loc>https://deepusoman.com/community.html</loc><lastmod>2026-07-10</lastmod><priority>0.7</priority></url>
+  <url><loc>https://deepusoman.com/toolbox.html</loc><lastmod>2026-07-10</lastmod><priority>0.6</priority></url>
+  <url><loc>https://deepusoman.com/contact.html</loc><lastmod>2026-07-10</lastmod><priority>0.5</priority></url>
+  <url><loc>https://deepusoman.com/articles/shipping-ai-agents-to-production.html</loc><lastmod>2026-07-06</lastmod><priority>0.8</priority></url>
+  <url><loc>https://deepusoman.com/articles/mcp-usb-c-of-ai-integrations.html</loc><lastmod>2026-06-22</lastmod><priority>0.8</priority></url>
+  <url><loc>https://deepusoman.com/articles/rag-in-2026-beyond-naive-retrieval.html</loc><lastmod>2026-06-08</lastmod><priority>0.8</priority></url>
+  <url><loc>https://deepusoman.com/articles/platform-engineering-first-idp.html</loc><lastmod>2026-05-25</lastmod><priority>0.8</priority></url>
+  <url><loc>https://deepusoman.com/articles/passkeys-life-after-passwords.html</loc><lastmod>2026-05-11</lastmod><priority>0.8</priority></url>
+  <url><loc>https://deepusoman.com/articles/serverless-cost-optimization-playbook.html</loc><lastmod>2026-04-27</lastmod><priority>0.8</priority></url>
+  <url><loc>https://deepusoman.com/articles/cloud-native-dotnet-on-azure.html</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://deepusoman.com/articles/webassembly-beyond-the-browser.html</loc><lastmod>2026-03-30</lastmod><priority>0.8</priority></url>
+</urlset>
