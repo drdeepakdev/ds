@@ -6,8 +6,50 @@
   <description>Practical, in-depth engineering articles on AI agents, cloud architecture, platform engineering and modern software delivery.</description>
   <language>en</language>
   <atom:link href="https://deepusoman.com/rss.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Mon, 06 Jul 2026 09:00:00 +0000</lastBuildDate>
+  <lastBuildDate>Wed, 08 Jul 2026 09:00:00 +0000</lastBuildDate>
 
+  <item>
+    <title>The Certification Stack: What 17 Certifications Taught Me About Technology Leadership</title>
+    <link>https://deepusoman.com/articles/the-certification-stack.html</link>
+    <guid>https://deepusoman.com/articles/the-certification-stack.html</guid>
+    <pubDate>Wed, 08 Jul 2026 09:00:00 +0000</pubDate>
+    <description>From MCSA and CCNP to PMP, the ISACA trio and TOGAF — a personal map of two decades of certifications and what each layer actually taught.</description>
+  </item>
+  <item>
+    <title>PMP, PRINCE2 or Agile: Choosing Your Project Management Path</title>
+    <link>https://deepusoman.com/articles/pmp-vs-prince2-vs-agile.html</link>
+    <guid>https://deepusoman.com/articles/pmp-vs-prince2-vs-agile.html</guid>
+    <pubDate>Mon, 29 Jun 2026 09:00:00 +0000</pubDate>
+    <description>PMP, PRINCE2, PMI-ACP and CSM compared by someone who holds all four — with the decision tree the training providers won't lead with.</description>
+  </item>
+  <item>
+    <title>CISA, CISM, CRISC: Mapping the ISACA Triangle</title>
+    <link>https://deepusoman.com/articles/cisa-cism-crisc-isaca-triangle.html</link>
+    <guid>https://deepusoman.com/articles/cisa-cism-crisc-isaca-triangle.html</guid>
+    <pubDate>Mon, 15 Jun 2026 09:00:00 +0000</pubDate>
+    <description>Auditor, manager and risk lenses on one system — which ISACA certification to sit first and how the trio combines.</description>
+  </item>
+  <item>
+    <title>CEH &amp; CHFI: Learning the Attacker's Mindset — Legally</title>
+    <link>https://deepusoman.com/articles/ceh-chfi-hackers-mindset.html</link>
+    <guid>https://deepusoman.com/articles/ceh-chfi-hackers-mindset.html</guid>
+    <pubDate>Mon, 01 Jun 2026 09:00:00 +0000</pubDate>
+    <description>What the EC-Council pair actually teaches, where they fit against hands-on certs, and why the forensic mindset is the underrated half.</description>
+  </item>
+  <item>
+    <title>Does TOGAF Still Matter? Enterprise Architecture in the AI Era</title>
+    <link>https://deepusoman.com/articles/togaf-enterprise-architecture-2026.html</link>
+    <guid>https://deepusoman.com/articles/togaf-enterprise-architecture-2026.html</guid>
+    <pubDate>Mon, 18 May 2026 09:00:00 +0000</pubDate>
+    <description>An honest defence and critique of TOGAF — and why AI transformation makes architecture governance more relevant, not less.</description>
+  </item>
+  <item>
+    <title>ITIL in a DevOps World: Service Management That Doesn't Slow You Down</title>
+    <link>https://deepusoman.com/articles/itil-in-a-devops-world.html</link>
+    <guid>https://deepusoman.com/articles/itil-in-a-devops-world.html</guid>
+    <pubDate>Mon, 04 May 2026 09:00:00 +0000</pubDate>
+    <description>ITIL and DevOps solve the same problem at different altitudes — what to keep, what to retire, and change control without the CAB.</description>
+  </item>
   <item>
     <title>Shipping AI Agents to Production: What the Demos Don't Tell You</title>
     <link>https://deepusoman.com/articles/shipping-ai-agents-to-production.html</link>

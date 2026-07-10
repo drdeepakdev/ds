@@ -3,16 +3,12 @@
    No HTML knowledge needed: each certification is one object below.
 
    Fields:
-     name      – certification title as it appears on the certificate
-     code      – exam/cert code shown as a chip (e.g. "AZ-305"); "" to hide
-     issuer    – organisation ("Microsoft", "AWS", "Google", "Scrum.org", …)
-     category  – one of: "cloud" | "ai" | "security" | "devops" | "management"
-     year      – year earned (number) — cards sort newest first
-     verify    – public verification URL (Credly / Microsoft Learn transcript);
-                 "" hides the verify button
-     sample    – true shows a small "sample entry" tag. REPLACE these with
-                 Deepu's real credentials (from LinkedIn/Credly) and set
-                 sample:false — or delete entries that don't apply.
+     name      – certification title
+     code      – short designation shown as a chip (e.g. "PMP"); "" to hide
+     issuer    – certifying body
+     category  – "management" | "security" | "architecture" | "infrastructure" | "data"
+     year      – year earned (number), or null to hide the year
+     verify    – public verification URL (Credly / issuer registry); "" hides the button
    ========================================================================== */
 
 window.SITE_DATA = {
@@ -20,22 +16,40 @@ window.SITE_DATA = {
   learnTranscript: "", // e.g. Microsoft Learn transcript share URL
 
   certifications: [
-    { name: "Microsoft Certified: Azure Solutions Architect Expert", code: "AZ-305", issuer: "Microsoft", category: "cloud",      year: 2025, verify: "", sample: true },
-    { name: "Microsoft Certified: Azure Administrator Associate",    code: "AZ-104", issuer: "Microsoft", category: "cloud",      year: 2024, verify: "", sample: true },
-    { name: "Microsoft Certified: Azure AI Engineer Associate",      code: "AI-102", issuer: "Microsoft", category: "ai",         year: 2025, verify: "", sample: true },
-    { name: "Microsoft Certified: Azure Fundamentals",               code: "AZ-900", issuer: "Microsoft", category: "cloud",      year: 2023, verify: "", sample: true },
-    { name: "Microsoft Certified: DevOps Engineer Expert",           code: "AZ-400", issuer: "Microsoft", category: "devops",     year: 2025, verify: "", sample: true },
-    { name: "Microsoft Certified: Security, Compliance & Identity Fundamentals", code: "SC-900", issuer: "Microsoft", category: "security", year: 2024, verify: "", sample: true },
-    { name: "AWS Certified Solutions Architect – Associate",         code: "SAA-C03", issuer: "AWS",      category: "cloud",      year: 2024, verify: "", sample: true },
-    { name: "Professional Scrum Master I",                           code: "PSM I",  issuer: "Scrum.org", category: "management", year: 2023, verify: "", sample: true }
+    /* — Project, programme & delivery — */
+    { name: "Project Management Professional",            code: "PMP",      issuer: "PMI",             category: "management",     year: null, verify: "" },
+    { name: "PMI Agile Certified Practitioner",           code: "PMI-ACP",  issuer: "PMI",             category: "management",     year: null, verify: "" },
+    { name: "PRINCE2 Practitioner",                       code: "PRINCE2",  issuer: "AXELOS / PeopleCert", category: "management", year: null, verify: "" },
+    { name: "Certified ScrumMaster",                      code: "CSM",      issuer: "Scrum Alliance",  category: "management",     year: null, verify: "" },
+    { name: "ITIL Foundation",                            code: "ITIL-F",   issuer: "AXELOS / PeopleCert", category: "management", year: null, verify: "" },
+
+    /* — Security, audit & risk — */
+    { name: "Certified Information Systems Auditor",      code: "CISA",     issuer: "ISACA",           category: "security",       year: null, verify: "" },
+    { name: "Certified Information Security Manager",     code: "CISM",     issuer: "ISACA",           category: "security",       year: null, verify: "" },
+    { name: "Certified in Risk & Information Systems Control", code: "CRISC", issuer: "ISACA",         category: "security",       year: null, verify: "" },
+    { name: "Certified Ethical Hacker",                   code: "CEH",      issuer: "EC-Council",      category: "security",       year: null, verify: "" },
+    { name: "Computer Hacking Forensic Investigator",     code: "CHFI",     issuer: "EC-Council",      category: "security",       year: null, verify: "" },
+
+    /* — Enterprise architecture — */
+    { name: "TOGAF Certified",                            code: "TOGAF",    issuer: "The Open Group",  category: "architecture",   year: null, verify: "" },
+
+    /* — Infrastructure & networking — */
+    { name: "Cisco Certified Network Professional",       code: "CCNP",     issuer: "Cisco",           category: "infrastructure", year: null, verify: "" },
+    { name: "Microsoft Certified Solutions Expert",       code: "MCSE",     issuer: "Microsoft",       category: "infrastructure", year: null, verify: "" },
+    { name: "Microsoft Certified Solutions Associate",    code: "MCSA",     issuer: "Microsoft",       category: "infrastructure", year: null, verify: "" },
+    { name: "Microsoft Certified IT Professional",        code: "MCITP",    issuer: "Microsoft",       category: "infrastructure", year: null, verify: "" },
+    { name: "Microsoft Certified Technology Specialist",  code: "MCTS",     issuer: "Microsoft",       category: "infrastructure", year: null, verify: "" },
+
+    /* — Data & platforms — */
+    { name: "Oracle Certified Professional",              code: "OCP",      issuer: "Oracle",          category: "data",           year: null, verify: "" }
   ],
 
-  /* Focus areas shown as the proficiency radar under the cert wall */
+  /* Focus areas shown as the proficiency map under the cert wall */
   focus: [
-    { label: "Cloud architecture",  level: 90 },
-    { label: "AI engineering",      level: 86 },
-    { label: "DevOps & platform",   level: 82 },
-    { label: "Security & identity", level: 74 },
-    { label: "Leadership & agile",  level: 78 }
+    { label: "Programme & project delivery", level: 94 },
+    { label: "Security, audit & risk",       level: 90 },
+    { label: "Enterprise architecture",      level: 84 },
+    { label: "Infrastructure & networking",  level: 88 },
+    { label: "Service management (ITIL)",    level: 82 }
   ]
 };

@@ -51,6 +51,7 @@
     <div style="display:flex; gap:18px; flex-wrap:wrap; align-items:center; justify-content:space-between; margin-bottom:34px;">
       <div class="chips" role="group" aria-label="Filter by topic">
         <button class="chip active" data-filter="all">All</button>
+        <button class="chip" data-filter="certs">Certifications</button>
         <button class="chip" data-filter="ai">AI Engineering</button>
         <button class="chip" data-filter="cloud">Cloud & Azure</button>
         <button class="chip" data-filter="platform">Platform</button>
@@ -62,6 +63,48 @@
 
     <h2 class="sr-only" id="all-articles">All articles</h2>
     <div class="grid cols-3">
+      <article class="post-card" data-post data-topics="certs management security architecture">
+        <div class="tags"><span class="tag">Certifications</span><span class="tag alt">Featured</span></div>
+        <h3><a href="articles/the-certification-stack.html">The Certification Stack: What 17 Certifications Taught Me About Technology Leadership</a></h3>
+        <p>From MCSA and CCNP to PMP, the ISACA trio and TOGAF — a personal map of two decades of credentials and what each layer actually taught.</p>
+        <div class="post-meta"><span>Jul 8, 2026</span><span class="dot"></span><span>13 min read</span></div>
+      </article>
+
+      <article class="post-card" data-post data-topics="certs management">
+        <div class="tags"><span class="tag">Certifications</span></div>
+        <h3><a href="articles/pmp-vs-prince2-vs-agile.html">PMP, PRINCE2 or Agile: Choosing Your Project Management Path</a></h3>
+        <p>All four compared by someone who holds them — what each really certifies, and the decision tree the course-sellers won't give you.</p>
+        <div class="post-meta"><span>Jun 29, 2026</span><span class="dot"></span><span>12 min read</span></div>
+      </article>
+
+      <article class="post-card" data-post data-topics="certs security">
+        <div class="tags"><span class="tag">Certifications</span><span class="tag alt">Security & Audit</span></div>
+        <h3><a href="articles/cisa-cism-crisc-isaca-triangle.html">CISA, CISM, CRISC: Mapping the ISACA Triangle</a></h3>
+        <p>Auditor, manager and risk lenses on one system — which to sit first, and how the trio changes how boards hear you.</p>
+        <div class="post-meta"><span>Jun 15, 2026</span><span class="dot"></span><span>12 min read</span></div>
+      </article>
+
+      <article class="post-card" data-post data-topics="certs security">
+        <div class="tags"><span class="tag">Certifications</span><span class="tag alt">Security</span></div>
+        <h3><a href="articles/ceh-chfi-hackers-mindset.html">CEH &amp; CHFI: Learning the Attacker's Mindset — Legally</a></h3>
+        <p>What the EC-Council pair actually teaches, and why the forensic half is the underrated one.</p>
+        <div class="post-meta"><span>Jun 1, 2026</span><span class="dot"></span><span>11 min read</span></div>
+      </article>
+
+      <article class="post-card" data-post data-topics="certs architecture">
+        <div class="tags"><span class="tag">Certifications</span><span class="tag warm">Architecture</span></div>
+        <h3><a href="articles/togaf-enterprise-architecture-2026.html">Does TOGAF Still Matter? Enterprise Architecture in the AI Era</a></h3>
+        <p>An honest defence and critique from a certified practitioner — and why AI transformation makes EA governance more relevant, not less.</p>
+        <div class="post-meta"><span>May 18, 2026</span><span class="dot"></span><span>11 min read</span></div>
+      </article>
+
+      <article class="post-card" data-post data-topics="certs platform">
+        <div class="tags"><span class="tag">Certifications</span><span class="tag alt">Operations</span></div>
+        <h3><a href="articles/itil-in-a-devops-world.html">ITIL in a DevOps World: Service Management That Doesn't Slow You Down</a></h3>
+        <p>ITIL and DevOps solve the same problem at different altitudes — what to keep, what to retire, and change control without the Thursday CAB.</p>
+        <div class="post-meta"><span>May 4, 2026</span><span class="dot"></span><span>10 min read</span></div>
+      </article>
+
       <article class="post-card" data-post data-topics="ai">
         <div class="tags"><span class="tag">AI Engineering</span></div>
         <h3><a href="articles/shipping-ai-agents-to-production.html">Shipping AI Agents to Production: What the Demos Don't Tell You</a></h3>
@@ -145,6 +188,7 @@
     <div>
       <p class="footer-heading">Tracks</p>
       <ul>
+        <li><a href="blog.html#t-certs">Certifications</a></li>
         <li><a href="blog.html">AI Engineering</a></li>
         <li><a href="blog.html">Cloud & Azure</a></li>
         <li><a href="blog.html">Platform Engineering</a></li>
