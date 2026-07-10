@@ -12,18 +12,19 @@
 <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap nav">
     <a class="brand" href="/"><span class="mark">DS</span><span>Deepu Soman<small>Engineering Notes</small></span></a>
-    <ul class="nav-links" style="display:flex;">
+    <nav class="main-nav" aria-label="Main"><ul class="nav-links" style="display:flex;">
       <li><a href="/">Home</a></li>
       <li><a href="/blog.html">Articles</a></li>
-    </ul>
+    </ul></nav>
     <button class="icon-btn theme" data-theme-toggle aria-label="Toggle theme" style="margin-left:auto;">☀</button>
   </div>
 </header>
 
-<section class="hero" style="min-height:70vh; display:flex; align-items:center;">
+<main id="main" class="hero" style="min-height:70vh; display:flex; align-items:center;">
   <div class="wrap" style="display:block; text-align:center; max-width:640px;">
     <span class="kicker" style="justify-content:center;">HTTP 404</span>
     <h1 style="font-size:clamp(2rem,5vw,3rem); margin-bottom:18px;">This page drifted out of context.</h1>
@@ -33,7 +34,7 @@
       <a class="btn btn-ghost" href="/">Back to home</a>
     </div>
   </div>
-</section>
+</main>
 
 <script src="/assets/js/main.js"></script>
 </body>

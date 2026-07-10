@@ -147,14 +147,24 @@
       });
       if (empty) empty.style.display = shown ? "none" : "block";
     }
+    function activate(ch) {
+      chips.forEach(function (x) { x.classList.remove("active"); x.setAttribute("aria-pressed", "false"); });
+      ch.classList.add("active");
+      ch.setAttribute("aria-pressed", "true");
+      topic = ch.getAttribute("data-filter");
+      apply();
+    }
     chips.forEach(function (ch) {
-      ch.addEventListener("click", function () {
-        chips.forEach(function (x) { x.classList.remove("active"); });
-        ch.classList.add("active");
-        topic = ch.getAttribute("data-filter");
-        apply();
-      });
+      ch.setAttribute("aria-pressed", ch.classList.contains("active") ? "true" : "false");
+      ch.addEventListener("click", function () { activate(ch); });
     });
+    // deep links: blog.html#t-ai etc. pre-select the matching filter
+    var m = /^#t-([a-z]+)/.exec(location.hash || "");
+    if (m) {
+      var target = null;
+      chips.forEach(function (ch) { if (ch.getAttribute("data-filter") === m[1]) target = ch; });
+      if (target) activate(target);
+    }
     if (search) search.addEventListener("input", function () { term = search.value.trim().toLowerCase(); apply(); });
   }
 

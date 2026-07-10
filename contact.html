@@ -24,7 +24,7 @@
   <div class="wrap nav">
     <a class="brand" href="index.html"><span class="mark">DS</span><span>Deepu Soman<small>Engineering Notes</small></span></a>
     <button class="icon-btn nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
-    <ul class="nav-links">
+    <nav class="main-nav" aria-label="Main"><ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="blog.html">Articles</a></li>
       <li><a href="credentials.html">Credentials</a></li>
@@ -32,12 +32,12 @@
       <li><a href="toolbox.html">Toolbox</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html" class="active">Contact</a></li>
-    </ul>
+    </ul></nav>
     <button class="icon-btn theme" data-theme-toggle aria-label="Toggle theme">☀</button>
   </div>
 </header>
 
-<section class="page-hero">
+<section class="page-hero" aria-label="Page introduction">
   <div class="wrap">
     <span class="kicker">Contact</span>
     <h1>Let's talk.</h1>
@@ -48,11 +48,11 @@
 <main id="main" class="section">
   <div class="wrap contact-grid">
     <div class="contact-list">
-      <a class="item" href="mailto:hello@deepusoman.com"><span class="ico">✉️</span><span><b>Email</b><span>hello@deepusoman.com — best for anything detailed</span></span></a>
-      <a class="item" href="https://www.linkedin.com/in/deepusoman/" target="_blank" rel="noopener"><span class="ico">💼</span><span><b>LinkedIn</b><span>linkedin.com/in/deepusoman — fastest for a quick hello</span></span></a>
-      <a class="item" href="community.html"><span class="ico">🎤</span><span><b>Speaking</b><span>User groups, meetups, podcasts — see the community page</span></span></a>
-      <a class="item" href="rss.xml"><span class="ico">📡</span><span><b>Follow the writing</b><span>RSS feed — every article, no algorithm</span></span></a>
-      <div class="item"><span class="ico">🤝</span><span><b>Sponsorship</b><span>Ethical, relevant products only — email with "Sponsor" in the subject</span></span></div>
+      <a class="item" href="mailto:hello@deepusoman.com"><span class="ico" aria-hidden="true">✉️</span><span><b>Email</b><span>hello@deepusoman.com — best for anything detailed</span></span></a>
+      <a class="item" href="https://www.linkedin.com/in/deepusoman/" target="_blank" rel="noopener"><span class="ico" aria-hidden="true">💼</span><span><b>LinkedIn</b><span>linkedin.com/in/deepusoman — fastest for a quick hello</span></span></a>
+      <a class="item" href="community.html"><span class="ico" aria-hidden="true">🎤</span><span><b>Speaking</b><span>User groups, meetups, podcasts — see the community page</span></span></a>
+      <a class="item" href="rss.xml"><span class="ico" aria-hidden="true">📡</span><span><b>Follow the writing</b><span>RSS feed — every article, no algorithm</span></span></a>
+      <div class="item"><span class="ico" aria-hidden="true">🤝</span><span><b>Sponsorship</b><span>Ethical, relevant products only — email with "Sponsor" in the subject</span></span></div>
     </div>
 
     <div class="form-card">
@@ -87,7 +87,7 @@
       <p>Practical writing on AI, cloud and platform engineering — learning in public on the road to Microsoft MVP.</p>
     </div>
     <div>
-      <h4>Explore</h4>
+      <p class="footer-heading">Explore</p>
       <ul>
         <li><a href="blog.html">All articles</a></li>
         <li><a href="community.html">Community & talks</a></li>
@@ -96,7 +96,7 @@
       </ul>
     </div>
     <div>
-      <h4>Tracks</h4>
+      <p class="footer-heading">Tracks</p>
       <ul>
         <li><a href="blog.html">AI Engineering</a></li>
         <li><a href="blog.html">Cloud & Azure</a></li>
@@ -105,7 +105,7 @@
       </ul>
     </div>
     <div>
-      <h4>Connect</h4>
+      <p class="footer-heading">Connect</p>
       <ul>
         <li><a href="https://www.linkedin.com/in/deepusoman/" target="_blank" rel="noopener">LinkedIn</a></li>
         <li><a href="contact.html">Email</a></li>
@@ -120,7 +120,7 @@
   </div>
 </footer>
 
-<div class="consent" id="consent" role="dialog" aria-label="Cookie consent">
+<div class="consent" id="consent" role="region" aria-label="Cookie consent">
   <p>This site uses cookies for advertising (Google AdSense) to keep the content free. You can accept or decline — articles work either way.</p>
   <button class="btn btn-ghost" data-consent="decline">Decline</button>
   <button class="btn btn-primary" data-consent="accept">Accept</button>

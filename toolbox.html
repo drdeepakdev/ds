@@ -24,7 +24,7 @@
   <div class="wrap nav">
     <a class="brand" href="index.html"><span class="mark">DS</span><span>Deepu Soman<small>Engineering Notes</small></span></a>
     <button class="icon-btn nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
-    <ul class="nav-links">
+    <nav class="main-nav" aria-label="Main"><ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="blog.html">Articles</a></li>
       <li><a href="credentials.html">Credentials</a></li>
@@ -32,12 +32,12 @@
       <li><a href="toolbox.html" class="active">Toolbox</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
-    </ul>
+    </ul></nav>
     <button class="icon-btn theme" data-theme-toggle aria-label="Toggle theme">☀</button>
   </div>
 </header>
 
-<section class="page-hero">
+<section class="page-hero" aria-label="Page introduction">
   <div class="wrap">
     <span class="kicker">Toolbox</span>
     <h1>What I actually use.</h1>
@@ -50,40 +50,40 @@
     <div class="section-head"><div><h2>Development &amp; AI</h2></div></div>
     <div class="grid cols-3">
       <div class="res-card">
-        <div class="res-top"><span class="ico">⚡</span><h3>VS Code + AI assistant</h3></div>
+        <div class="res-top"><span class="ico" aria-hidden="true">⚡</span><h3>VS Code + AI assistant</h3></div>
         <p>The editor plus an AI coding agent is the default 2026 setup. Whichever assistant you choose, learn its context features properly — that's where the productivity actually lives.</p>
         <a class="res-cta aff-link" href="https://code.visualstudio.com/">Get VS Code →</a>
       </div>
       <div class="res-card">
-        <div class="res-top"><span class="ico">🐙</span><h3>GitHub</h3></div>
+        <div class="res-top"><span class="ico" aria-hidden="true">🐙</span><h3>GitHub</h3></div>
         <p>Repos, Actions for CI/CD, and a public profile that doubles as your engineering CV. If you're on the MVP road, your contribution graph is quiet evidence.</p>
         <a class="res-cta aff-link" href="https://github.com/">github.com →</a>
       </div>
       <div class="res-card">
-        <div class="res-top"><span class="ico">🧠</span><h3>Model provider APIs</h3></div>
+        <div class="res-top"><span class="ico" aria-hidden="true">🧠</span><h3>Model provider APIs</h3></div>
         <p>Direct API access to a frontier model beats wrappers for learning: you see the context, the tokens and the bill. Start with the official SDKs and build one small agent end-to-end.</p>
         <a class="res-cta" href="articles/shipping-ai-agents-to-production.html">My agent field guide →</a>
       </div>
     </div>
 
-    <div class="ad-slot leaderboard" data-ad="inArticle" aria-label="Advertisement">
+    <div class="ad-slot leaderboard" data-ad="inArticle">
       <div class="ad-note">Advertisement<b>Ad slot — activates once AdSense ID is set in assets/js/monetize.js</b></div>
     </div>
 
     <div class="section-head"><div><h2>Cloud &amp; learning</h2></div></div>
     <div class="grid cols-3">
       <div class="res-card">
-        <div class="res-top"><span class="ico">☁️</span><h3>Azure free tier</h3></div>
+        <div class="res-top"><span class="ico" aria-hidden="true">☁️</span><h3>Azure free tier</h3></div>
         <p>Everything in my Azure articles can be reproduced on the free tier plus a few dollars. Create a sandbox subscription, set a budget alert, and break things safely.</p>
         <a class="res-cta aff-link" href="https://azure.microsoft.com/free/">Start free →</a>
       </div>
       <div class="res-card">
-        <div class="res-top"><span class="ico">🎓</span><h3>Microsoft Learn</h3></div>
+        <div class="res-top"><span class="ico" aria-hidden="true">🎓</span><h3>Microsoft Learn</h3></div>
         <p>Free, hands-on, and the exact material MVP hopefuls should be teaching from. The AZ-204 and AI-102 paths pair well with this site's Cloud and AI tracks.</p>
         <a class="res-cta aff-link" href="https://learn.microsoft.com/">learn.microsoft.com →</a>
       </div>
       <div class="res-card">
-        <div class="res-top"><span class="ico">📚</span><h3>Books that survived my shelf-cull</h3></div>
+        <div class="res-top"><span class="ico" aria-hidden="true">📚</span><h3>Books that survived my shelf-cull</h3></div>
         <p><em>Designing Data-Intensive Applications</em>, <em>Team Topologies</em>, <em>Accelerate</em>. Three books, ninety percent of the architecture conversations you'll ever need.</p>
         <a class="res-cta aff-link" href="https://www.amazon.com/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321">On Amazon →</a>
         <span class="aff">Affiliate-ready link</span>
@@ -93,17 +93,17 @@
     <div class="section-head" style="margin-top:44px;"><div><h2>Publishing &amp; this site</h2></div></div>
     <div class="grid cols-3">
       <div class="res-card">
-        <div class="res-top"><span class="ico">📰</span><h3>Newsletter platform</h3></div>
+        <div class="res-top"><span class="ico" aria-hidden="true">📰</span><h3>Newsletter platform</h3></div>
         <p>An email list is the one audience channel no algorithm can take away. Buttondown or ConvertKit both work; start free, write consistently.</p>
         <a class="res-cta aff-link" href="https://buttondown.com/">Buttondown →</a>
       </div>
       <div class="res-card">
-        <div class="res-top"><span class="ico">📈</span><h3>Privacy-friendly analytics</h3></div>
+        <div class="res-top"><span class="ico" aria-hidden="true">📈</span><h3>Privacy-friendly analytics</h3></div>
         <p>Plausible or GoatCounter tell you what's read without cookie-consent headaches. Pair with Search Console for the SEO picture.</p>
         <a class="res-cta aff-link" href="https://plausible.io/">Plausible →</a>
       </div>
       <div class="res-card">
-        <div class="res-top"><span class="ico">💸</span><h3>Google AdSense</h3></div>
+        <div class="res-top"><span class="ico" aria-hidden="true">💸</span><h3>Google AdSense</h3></div>
         <p>How this site earns on clicks: unobtrusive display ads in marked slots. The whole setup is one publisher ID in one config file — details in the site README.</p>
         <a class="res-cta aff-link" href="https://adsense.google.com/">adsense.google.com →</a>
       </div>
@@ -120,7 +120,7 @@
       <p>Practical writing on AI, cloud and platform engineering — learning in public on the road to Microsoft MVP.</p>
     </div>
     <div>
-      <h4>Explore</h4>
+      <p class="footer-heading">Explore</p>
       <ul>
         <li><a href="blog.html">All articles</a></li>
         <li><a href="community.html">Community & talks</a></li>
@@ -129,7 +129,7 @@
       </ul>
     </div>
     <div>
-      <h4>Tracks</h4>
+      <p class="footer-heading">Tracks</p>
       <ul>
         <li><a href="blog.html">AI Engineering</a></li>
         <li><a href="blog.html">Cloud & Azure</a></li>
@@ -138,7 +138,7 @@
       </ul>
     </div>
     <div>
-      <h4>Connect</h4>
+      <p class="footer-heading">Connect</p>
       <ul>
         <li><a href="https://www.linkedin.com/in/deepusoman/" target="_blank" rel="noopener">LinkedIn</a></li>
         <li><a href="contact.html">Email</a></li>
@@ -153,7 +153,7 @@
   </div>
 </footer>
 
-<div class="consent" id="consent" role="dialog" aria-label="Cookie consent">
+<div class="consent" id="consent" role="region" aria-label="Cookie consent">
   <p>This site uses cookies for advertising (Google AdSense) to keep the content free. You can accept or decline — articles work either way.</p>
   <button class="btn btn-ghost" data-consent="decline">Decline</button>
   <button class="btn btn-primary" data-consent="accept">Accept</button>

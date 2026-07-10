@@ -38,7 +38,7 @@
   <div class="wrap nav">
     <a class="brand" href="../index.html"><span class="mark">DS</span><span>Deepu Soman<small>Engineering Notes</small></span></a>
     <button class="icon-btn nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
-    <ul class="nav-links">
+    <nav class="main-nav" aria-label="Main"><ul class="nav-links">
       <li><a href="../index.html">Home</a></li>
       <li><a href="../blog.html" class="active">Articles</a></li>
       <li><a href="../credentials.html">Credentials</a></li>
@@ -46,7 +46,7 @@
       <li><a href="../toolbox.html">Toolbox</a></li>
       <li><a href="../about.html">About</a></li>
       <li><a href="../contact.html">Contact</a></li>
-    </ul>
+    </ul></nav>
     <button class="icon-btn theme" data-theme-toggle aria-label="Toggle theme">☀</button>
   </div>
 </header>
@@ -83,7 +83,7 @@
         <li><strong>Own</strong> — the service appears in a catalog with its owner, tier, docs and runbook links.</li>
       </ul>
 
-      <div class="ad-slot in-article" data-ad="inArticle" aria-label="Advertisement">
+      <div class="ad-slot in-article" data-ad="inArticle">
         <div class="ad-note">Advertisement<b>In-article ad slot — configure in assets/js/monetize.js</b></div>
       </div>
 
@@ -91,7 +91,7 @@
       <p>For a 30–150 engineer organisation, this stack gets you 80% of the value:</p>
       <div class="table-scroll">
       <table>
-        <tr><th>Capability</th><th>Pragmatic choice</th><th>Notes</th></tr>
+        <tr><th scope="col">Capability</th><th scope="col">Pragmatic choice</th><th scope="col">Notes</th></tr>
         <tr><td>Service catalog + templates</td><td>Backstage, or even a well-kept repo of cookiecutter templates</td><td>Start with templates; add the portal when templates prove out.</td></tr>
         <tr><td>CI/CD paved road</td><td>Shared, versioned pipeline definitions (reusable workflows)</td><td>Teams inherit; they don't copy-paste.</td></tr>
         <tr><td>Infrastructure</td><td>A handful of blessed IaC modules</td><td>"Postgres, queue, web service" covers most requests.</td></tr>
@@ -123,7 +123,7 @@
     <div class="author-box">
       <div class="avatar">DS</div>
       <div>
-        <h4>Deepu Soman</h4>
+        <p class="author-name" style="font-family:var(--font-display);font-weight:620;font-size:1.1rem;margin-bottom:6px;">Deepu Soman</p>
         <p>Technology professional writing about AI engineering, cloud architecture and modern software delivery. Learning in public on the road to Microsoft MVP.</p>
         <div class="links"><a href="../about.html">About</a><a href="https://www.linkedin.com/in/deepusoman/" target="_blank" rel="noopener">LinkedIn</a><a href="../rss.xml">RSS</a></div>
       </div>
@@ -147,7 +147,7 @@
           <li><a href="#metrics">5 · Measuring DevEx</a></li>
         </ol>
       </div>
-      <div class="ad-slot sidebar-ad" data-ad="sidebar" aria-label="Advertisement">
+      <div class="ad-slot sidebar-ad" data-ad="sidebar">
         <div class="ad-note">Advertisement<b>Sidebar ad slot</b></div>
       </div>
     </div>
@@ -161,7 +161,7 @@
       <p>Practical writing on AI, cloud and platform engineering — learning in public on the road to Microsoft MVP.</p>
     </div>
     <div>
-      <h4>Explore</h4>
+      <p class="footer-heading">Explore</p>
       <ul>
         <li><a href="../blog.html">All articles</a></li>
         <li><a href="../community.html">Community & talks</a></li>
@@ -170,7 +170,7 @@
       </ul>
     </div>
     <div>
-      <h4>Tracks</h4>
+      <p class="footer-heading">Tracks</p>
       <ul>
         <li><a href="../blog.html">AI Engineering</a></li>
         <li><a href="../blog.html">Cloud & Azure</a></li>
@@ -179,7 +179,7 @@
       </ul>
     </div>
     <div>
-      <h4>Connect</h4>
+      <p class="footer-heading">Connect</p>
       <ul>
         <li><a href="https://www.linkedin.com/in/deepusoman/" target="_blank" rel="noopener">LinkedIn</a></li>
         <li><a href="../contact.html">Email</a></li>
@@ -194,7 +194,7 @@
   </div>
 </footer>
 
-<div class="consent" id="consent" role="dialog" aria-label="Cookie consent">
+<div class="consent" id="consent" role="region" aria-label="Cookie consent">
   <p>This site uses cookies for advertising (Google AdSense) to keep the content free. You can accept or decline — articles work either way.</p>
   <button class="btn btn-ghost" data-consent="decline">Decline</button>
   <button class="btn btn-primary" data-consent="accept">Accept</button>

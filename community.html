@@ -24,7 +24,7 @@
   <div class="wrap nav">
     <a class="brand" href="index.html"><span class="mark">DS</span><span>Deepu Soman<small>Engineering Notes</small></span></a>
     <button class="icon-btn nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
-    <ul class="nav-links">
+    <nav class="main-nav" aria-label="Main"><ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="blog.html">Articles</a></li>
       <li><a href="credentials.html">Credentials</a></li>
@@ -32,12 +32,12 @@
       <li><a href="toolbox.html">Toolbox</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
-    </ul>
+    </ul></nav>
     <button class="icon-btn theme" data-theme-toggle aria-label="Toggle theme">☀</button>
   </div>
 </header>
 
-<section class="page-hero">
+<section class="page-hero" aria-label="Page introduction">
   <div class="wrap">
     <span class="kicker">Community &amp; Contributions</span>
     <h1>Learning in public, on the record.</h1>
@@ -48,9 +48,9 @@
 <main id="main" class="section">
   <div class="wrap">
     <div class="grid cols-3" style="margin-bottom:50px;">
-      <div class="topic-tile"><span class="ico">✍️</span><span><b>8 technical articles</b><span>Long-form, code-first deep dives published on this site since March 2026.</span></span></div>
-      <div class="topic-tile"><span class="ico">🎤</span><span><b>Talks &amp; meetups</b><span>Sessions and community meetups — upcoming engagements listed below.</span></span></div>
-      <div class="topic-tile"><span class="ico">🧑‍🏫</span><span><b>Mentoring &amp; Q&amp;A</b><span>Answering developer questions and mentoring engineers earlier in their careers.</span></span></div>
+      <div class="topic-tile"><span class="ico" aria-hidden="true">✍️</span><span><b>8 technical articles</b><span>Long-form, code-first deep dives published on this site since March 2026.</span></span></div>
+      <div class="topic-tile"><span class="ico" aria-hidden="true">🎤</span><span><b>Talks &amp; meetups</b><span>Sessions and community meetups — upcoming engagements listed below.</span></span></div>
+      <div class="topic-tile"><span class="ico" aria-hidden="true">🧑‍🏫</span><span><b>Mentoring &amp; Q&amp;A</b><span>Answering developer questions and mentoring engineers earlier in their careers.</span></span></div>
     </div>
 
     <div class="section-head"><div><h2>Contribution log — 2026</h2><p>Newest first. Every entry links to public, verifiable output.</p></div></div>
@@ -88,7 +88,7 @@
       </div>
     </div>
 
-    <div class="ad-slot leaderboard" data-ad="footer" aria-label="Advertisement">
+    <div class="ad-slot leaderboard" data-ad="footer">
       <div class="ad-note">Advertisement<b>Ad slot — activates once AdSense ID is set in assets/js/monetize.js</b></div>
     </div>
 
@@ -112,7 +112,7 @@
       <p>Practical writing on AI, cloud and platform engineering — learning in public on the road to Microsoft MVP.</p>
     </div>
     <div>
-      <h4>Explore</h4>
+      <p class="footer-heading">Explore</p>
       <ul>
         <li><a href="blog.html">All articles</a></li>
         <li><a href="community.html">Community & talks</a></li>
@@ -121,7 +121,7 @@
       </ul>
     </div>
     <div>
-      <h4>Tracks</h4>
+      <p class="footer-heading">Tracks</p>
       <ul>
         <li><a href="blog.html">AI Engineering</a></li>
         <li><a href="blog.html">Cloud & Azure</a></li>
@@ -130,7 +130,7 @@
       </ul>
     </div>
     <div>
-      <h4>Connect</h4>
+      <p class="footer-heading">Connect</p>
       <ul>
         <li><a href="https://www.linkedin.com/in/deepusoman/" target="_blank" rel="noopener">LinkedIn</a></li>
         <li><a href="contact.html">Email</a></li>
@@ -145,7 +145,7 @@
   </div>
 </footer>
 
-<div class="consent" id="consent" role="dialog" aria-label="Cookie consent">
+<div class="consent" id="consent" role="region" aria-label="Cookie consent">
   <p>This site uses cookies for advertising (Google AdSense) to keep the content free. You can accept or decline — articles work either way.</p>
   <button class="btn btn-ghost" data-consent="decline">Decline</button>
   <button class="btn btn-primary" data-consent="accept">Accept</button>

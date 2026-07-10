@@ -25,7 +25,7 @@
   <div class="wrap nav">
     <a class="brand" href="index.html"><span class="mark">DS</span><span>Deepu Soman<small>Engineering Notes</small></span></a>
     <button class="icon-btn nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
-    <ul class="nav-links">
+    <nav class="main-nav" aria-label="Main"><ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="blog.html" class="active">Articles</a></li>
       <li><a href="credentials.html">Credentials</a></li>
@@ -33,12 +33,12 @@
       <li><a href="toolbox.html">Toolbox</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
-    </ul>
+    </ul></nav>
     <button class="icon-btn theme" data-theme-toggle aria-label="Toggle theme">☀</button>
   </div>
 </header>
 
-<section class="page-hero">
+<section class="page-hero" aria-label="Page introduction">
   <div class="wrap">
     <span class="kicker">The Library</span>
     <h1>Every article, one page.</h1>
@@ -49,7 +49,7 @@
 <main id="main" class="section">
   <div class="wrap">
     <div style="display:flex; gap:18px; flex-wrap:wrap; align-items:center; justify-content:space-between; margin-bottom:34px;">
-      <div class="chips" role="tablist" aria-label="Filter by topic">
+      <div class="chips" role="group" aria-label="Filter by topic">
         <button class="chip active" data-filter="all">All</button>
         <button class="chip" data-filter="ai">AI Engineering</button>
         <button class="chip" data-filter="cloud">Cloud & Azure</button>
@@ -60,6 +60,7 @@
       <div class="search-box">🔎 <input id="post-search" type="search" placeholder="Search articles…" aria-label="Search articles"></div>
     </div>
 
+    <h2 class="sr-only" id="all-articles">All articles</h2>
     <div class="grid cols-3">
       <article class="post-card" data-post data-topics="ai">
         <div class="tags"><span class="tag">AI Engineering</span></div>
@@ -120,7 +121,7 @@
 
     <p id="no-results" class="muted center" style="display:none; padding:40px 0;">No articles match that filter yet — more writing lands every week.</p>
 
-    <div class="ad-slot leaderboard" data-ad="footer" aria-label="Advertisement">
+    <div class="ad-slot leaderboard" data-ad="footer">
       <div class="ad-note">Advertisement<b>Ad slot — activates automatically once AdSense ID is set in assets/js/monetize.js</b></div>
     </div>
   </div>
@@ -133,7 +134,7 @@
       <p>Practical writing on AI, cloud and platform engineering — learning in public on the road to Microsoft MVP.</p>
     </div>
     <div>
-      <h4>Explore</h4>
+      <p class="footer-heading">Explore</p>
       <ul>
         <li><a href="blog.html">All articles</a></li>
         <li><a href="community.html">Community & talks</a></li>
@@ -142,7 +143,7 @@
       </ul>
     </div>
     <div>
-      <h4>Tracks</h4>
+      <p class="footer-heading">Tracks</p>
       <ul>
         <li><a href="blog.html">AI Engineering</a></li>
         <li><a href="blog.html">Cloud & Azure</a></li>
@@ -151,7 +152,7 @@
       </ul>
     </div>
     <div>
-      <h4>Connect</h4>
+      <p class="footer-heading">Connect</p>
       <ul>
         <li><a href="https://www.linkedin.com/in/deepusoman/" target="_blank" rel="noopener">LinkedIn</a></li>
         <li><a href="contact.html">Email</a></li>
@@ -166,7 +167,7 @@
   </div>
 </footer>
 
-<div class="consent" id="consent" role="dialog" aria-label="Cookie consent">
+<div class="consent" id="consent" role="region" aria-label="Cookie consent">
   <p>This site uses cookies for advertising (Google AdSense) to keep the content free. You can accept or decline — articles work either way.</p>
   <button class="btn btn-ghost" data-consent="decline">Decline</button>
   <button class="btn btn-primary" data-consent="accept">Accept</button>
