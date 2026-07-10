@@ -13,10 +13,10 @@
 <meta property="og:url" content="https://deepusoman.com/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="alternate" type="application/rss+xml" title="Deepu Soman — RSS" href="https://deepusoman.com/rss.xml">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230891b2'/><text x='50' y='68' font-size='48' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>DS</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='0' fill='%2314181A'/><text x='50' y='68' font-size='48' font-family='Arial' font-weight='bold' fill='%23D9A648' text-anchor='middle'>DS</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62.5..125,400..700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400;1,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 <script type="application/ld+json">
 {
@@ -37,7 +37,7 @@
 <header class="site-header">
   <div class="wrap nav">
     <a class="brand" href="index.html"><span class="mark">DS</span><span>Deepu Soman<small>Engineering Notes</small></span></a>
-    <button class="icon-btn nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+    <button class="icon-btn nav-toggle" aria-label="Menu" aria-expanded="false"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="square" aria-hidden="true"><line x1="2" y1="5.5" x2="18" y2="5.5"/><line x1="2" y1="10" x2="18" y2="10"/><line x1="2" y1="14.5" x2="18" y2="14.5"/></svg></button>
     <nav class="main-nav" aria-label="Main"><ul class="nav-links">
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="blog.html">Articles</a></li>
@@ -47,41 +47,50 @@
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul></nav>
-    <button class="icon-btn theme" data-theme-toggle aria-label="Toggle theme">☀</button>
+    <button class="icon-btn theme" data-theme-toggle aria-label="Toggle theme"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="1.25"/><path d="M10 2.5 A7.5 7.5 0 0 1 10 17.5 Z" fill="currentColor"/></svg></button>
   </div>
 </header>
 
 <section class="hero" aria-label="Introduction">
   <div class="wrap">
     <div>
-      <span class="kicker">Delivery · Security · Architecture · AI</span>
-      <h1>Notes from the trenches of <span class="grad">modern software</span> engineering.</h1>
-      <p class="lede">I'm Deepu Soman — PMP, CISM, TOGAF and fourteen more letters' worth of hard-won lessons across project delivery, security &amp; audit, enterprise architecture and modern engineering. I write the honest, first-person guides I wish these subjects had when I started.</p>
+      <span class="kicker">Ledger of work<span class="sep">·</span><b>DELIVERY</b><span class="sep">·</span><b>SECURITY</b><span class="sep">·</span><b>ARCHITECTURE</b><span class="sep">·</span><b>INFRA</b><span class="sep">·</span><b>DATA</b><span class="sep">·</span>Est. 2004</span>
+      <h1><span class="fig">FIG. 01 — THE INSTRUMENT BENCH</span>Measured notes on modern engineering.</h1>
+      <p class="lede">I'm Deepu Soman — <span class="cert-chip">PMP</span> <span class="cert-chip">CISM</span> <span class="cert-chip">TOGAF</span> and fourteen more independently audited credentials across project delivery, security &amp; audit, enterprise architecture, infrastructure and data. This site is the ledger: honest, first-person guides, each a numbered entry with a domain stamp.</p>
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="blog.html">Read the articles →</a>
-        <a class="btn btn-ghost" href="https://www.linkedin.com/in/deepusoman/" target="_blank" rel="noopener">Connect on LinkedIn</a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat"><b>14</b><span>in-depth articles</span></div>
-        <div class="stat"><b>17</b><span>certifications</span></div>
-        <div class="stat"><b>Weekly</b><span>new writing</span></div>
+        <a class="btn btn-primary" href="blog.html">Open the register →</a>
+        <a class="ruled-link" href="credentials.html">Verify credentials ↗</a>
       </div>
     </div>
-    <div class="hero-card" aria-hidden="true">
-      <div class="term-head"><i></i><i></i><i></i><span>~/deepusoman — zsh</span></div>
-      <pre>$ <span class="k">whoami</span>
-deepu.soman
-
-$ <span class="k">cat</span> focus.yaml
-<span class="v">mission:</span>  <span class="s">"learn in public, teach in depth"</span>
-<span class="v">tracks:</span>
-  - <span class="s">certifications</span>
-  - <span class="s">security-and-audit</span>
-  - <span class="s">ai-engineering</span>
-<span class="v">status:</span>   <span class="s">"shipping"</span>  <span class="c"># always</span></pre>
+    <div id="credential-rule">
+      <div class="crule-frame">
+        <div class="crule-head"><span>The Credential Rule</span><b>17 CERTS · 5 BANDS</b></div>
+        <svg class="crule-svg" viewBox="0 0 360 132" role="img" aria-label="Certification scale — 17 ticks across 5 domains"></svg>
+        <output class="crule-readout" aria-live="polite" for="credential-rule"></output>
+        <ul class="crule-fallback" aria-label="All 17 certifications">
+          <li><span class="n">01</span><span class="c">PMP</span><span class="nm">PMI</span><span class="cat">DELIVERY</span></li>
+          <li><span class="n">02</span><span class="c">PMI-ACP</span><span class="nm">PMI</span><span class="cat">DELIVERY</span></li>
+          <li><span class="n">03</span><span class="c">PRINCE2</span><span class="nm">PeopleCert</span><span class="cat">DELIVERY</span></li>
+          <li><span class="n">04</span><span class="c">CSM</span><span class="nm">Scrum Alliance</span><span class="cat">DELIVERY</span></li>
+          <li><span class="n">05</span><span class="c">ITIL-F</span><span class="nm">PeopleCert</span><span class="cat">DELIVERY</span></li>
+          <li><span class="n">06</span><span class="c">CISA</span><span class="nm">ISACA</span><span class="cat">SECURITY</span></li>
+          <li><span class="n">07</span><span class="c">CISM</span><span class="nm">ISACA</span><span class="cat">SECURITY</span></li>
+          <li><span class="n">08</span><span class="c">CRISC</span><span class="nm">ISACA</span><span class="cat">SECURITY</span></li>
+          <li><span class="n">09</span><span class="c">CEH</span><span class="nm">EC-Council</span><span class="cat">SECURITY</span></li>
+          <li><span class="n">10</span><span class="c">CHFI</span><span class="nm">EC-Council</span><span class="cat">SECURITY</span></li>
+          <li><span class="n">11</span><span class="c">TOGAF</span><span class="nm">The Open Group</span><span class="cat">ARCH</span></li>
+          <li><span class="n">12</span><span class="c">CCNP</span><span class="nm">Cisco</span><span class="cat">INFRA</span></li>
+          <li><span class="n">13</span><span class="c">MCSE</span><span class="nm">Microsoft</span><span class="cat">INFRA</span></li>
+          <li><span class="n">14</span><span class="c">MCSA</span><span class="nm">Microsoft</span><span class="cat">INFRA</span></li>
+          <li><span class="n">15</span><span class="c">MCITP</span><span class="nm">Microsoft</span><span class="cat">INFRA</span></li>
+          <li><span class="n">16</span><span class="c">MCTS</span><span class="nm">Microsoft</span><span class="cat">INFRA</span></li>
+          <li><span class="n">17</span><span class="c">OCP</span><span class="nm">Oracle</span><span class="cat">DATA</span></li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
+<div class="tick-strip" aria-hidden="true"></div>
 
 <main id="main">
   <section class="section">
@@ -91,40 +100,51 @@ $ <span class="k">cat</span> focus.yaml
       </div>
 
       <div class="section-head">
-        <div><h2>Latest deep dives</h2><p>Long-form, code-first articles — updated weekly.</p></div>
-        <a class="more" href="blog.html">All articles →</a>
+        <div><h2><span class="section-idx">01 / REGISTER</span>Recent entries</h2><p>Long-form, code-first articles — the newest ledger entries.</p></div>
+        <a class="more" href="blog.html">Open the register →</a>
       </div>
 
-      <div class="grid cols-3">
-        <article class="post-card featured">
-          <div class="art">🎓</div>
-          <div>
-            <div class="tags"><span class="tag">Certifications</span><span class="tag alt">Featured</span></div>
-            <h3><a href="articles/the-certification-stack.html">The Certification Stack: What 17 Certifications Taught Me About Technology Leadership</a></h3>
-            <p>From MCSA and CCNP to PMP, the ISACA trio and TOGAF — a personal map of two decades of credentials, what each layer actually taught, and how to build your own stack deliberately.</p>
-            <div class="post-meta"><span>Jul 8, 2026</span><span class="dot"></span><span>13 min read</span></div>
+      <div class="register">
+        <article class="entry current">
+          <div class="entry-topline">
+            <span class="entry-folio">No. 014</span>
+            <span class="entry-date">JUL 08 2026</span>
+            <span class="entry-stamp">CE</span>
+            <span class="entry-read">13 MIN</span>
           </div>
+          <h3 class="entry-title"><a href="articles/the-certification-stack.html">The Certification Stack: What 17 Certifications Taught Me About Technology Leadership</a><span class="dek">From MCSA and CCNP to PMP, the ISACA trio and TOGAF — a personal map of two decades of credentials, what each layer actually taught, and how to build your own stack deliberately.</span></h3>
         </article>
 
-        <article class="post-card">
-          <div class="tags"><span class="tag">Certifications</span><span class="tag alt">Security & Audit</span></div>
-          <h3><a href="articles/cisa-cism-crisc-isaca-triangle.html">CISA, CISM, CRISC: Mapping the ISACA Triangle</a></h3>
-          <p>Auditor, manager and risk lenses on one system — which to sit first, and how the trio changes how boards hear you.</p>
-          <div class="post-meta"><span>Jun 15, 2026</span><span class="dot"></span><span>12 min read</span></div>
+        <article class="entry">
+          <span class="entry-folio" data-date="JUL 06 2026">No. 013</span>
+          <time class="entry-date">JUL 06 2026</time>
+          <h3 class="entry-title"><a href="articles/shipping-ai-agents-to-production.html">Shipping AI Agents to Production: What the Demos Don't Tell You</a><span class="figtag">FIG.</span></h3>
+          <span class="entry-stamp">AI</span>
+          <span class="entry-read">14 MIN</span>
         </article>
 
-        <article class="post-card">
-          <div class="tags"><span class="tag">Certifications</span></div>
-          <h3><a href="articles/pmp-vs-prince2-vs-agile.html">PMP, PRINCE2 or Agile: Choosing Your Project Management Path</a></h3>
-          <p>All four compared by someone who holds them — what each really certifies, and the decision tree the course-sellers won't give you.</p>
-          <div class="post-meta"><span>Jun 29, 2026</span><span class="dot"></span><span>12 min read</span></div>
+        <article class="entry">
+          <span class="entry-folio" data-date="JUN 29 2026">No. 012</span>
+          <time class="entry-date">JUN 29 2026</time>
+          <h3 class="entry-title"><a href="articles/pmp-vs-prince2-vs-agile.html">PMP, PRINCE2 or Agile: Choosing Your Project Management Path</a><span class="figtag">GUIDE</span></h3>
+          <span class="entry-stamp">PD</span>
+          <span class="entry-read">12 MIN</span>
         </article>
 
-        <article class="post-card">
-          <div class="tags"><span class="tag">AI Engineering</span></div>
-          <h3><a href="articles/shipping-ai-agents-to-production.html">Shipping AI Agents to Production: What the Demos Don't Tell You</a></h3>
-          <p>Agent demos are easy; agent reliability is hard. Guardrails, evals, human-in-the-loop design and cost control for real agent systems.</p>
-          <div class="post-meta"><span>Jul 6, 2026</span><span class="dot"></span><span>14 min read</span></div>
+        <article class="entry">
+          <span class="entry-folio" data-date="JUN 22 2026">No. 011</span>
+          <time class="entry-date">JUN 22 2026</time>
+          <h3 class="entry-title"><a href="articles/mcp-usb-c-of-ai-integrations.html">MCP: The USB-C Moment for AI Integrations</a><span class="figtag">FIG.</span></h3>
+          <span class="entry-stamp">AI</span>
+          <span class="entry-read">11 MIN</span>
+        </article>
+
+        <article class="entry">
+          <span class="entry-folio" data-date="JUN 15 2026">No. 010</span>
+          <time class="entry-date">JUN 15 2026</time>
+          <h3 class="entry-title"><a href="articles/cisa-cism-crisc-isaca-triangle.html">CISA, CISM, CRISC: Mapping the ISACA Triangle</a><span class="figtag">GUIDE</span></h3>
+          <span class="entry-stamp">SA</span>
+          <span class="entry-read">12 MIN</span>
         </article>
       </div>
     </div>
@@ -133,15 +153,15 @@ $ <span class="k">cat</span> focus.yaml
   <section class="section tint">
     <div class="wrap">
       <div class="section-head">
-        <div><h2>Explore by track</h2><p>Six focused learning tracks, each built from real project experience.</p></div>
+        <div><h2><span class="section-idx">02 / TRACKS</span>Explore by track</h2><p>Six focused learning tracks, each built from real project experience.</p></div>
       </div>
-      <div class="grid cols-3">
-        <a class="topic-tile" href="blog.html#t-ai"><span class="ico" aria-hidden="true">🤖</span><span><b>AI Engineering</b><span>Agents, LLM apps, MCP, evals and prompt-to-production workflows.</span></span></a>
-        <a class="topic-tile" href="blog.html#t-cloud"><span class="ico" aria-hidden="true">☁️</span><span><b>Cloud & Azure</b><span>Cloud-native architecture, serverless, cost optimisation, .NET on Azure.</span></span></a>
-        <a class="topic-tile" href="blog.html#t-platform"><span class="ico" aria-hidden="true">🛠️</span><span><b>Platform Engineering</b><span>Internal developer platforms, golden paths, DevEx metrics.</span></span></a>
-        <a class="topic-tile" href="blog.html#t-security"><span class="ico" aria-hidden="true">🔐</span><span><b>Security</b><span>Passkeys, zero trust, supply-chain hygiene for everyday teams.</span></span></a>
-        <a class="topic-tile" href="blog.html#t-architecture"><span class="ico" aria-hidden="true">📐</span><span><b>Architecture</b><span>RAG systems, event-driven design, WebAssembly and the modern stack.</span></span></a>
-        <a class="topic-tile" href="blog.html#t-certs"><span class="ico" aria-hidden="true">🎓</span><span><b>Certifications</b><span>PMP, PRINCE2, ISACA, TOGAF, CEH — honest guides from someone who sat them all.</span></span></a>
+      <div class="topic-index">
+        <a class="topic-tile" href="blog.html#t-ai"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="square"><rect x="7.5" y="7.5" width="9" height="9"/><circle cx="12" cy="12" r="1.8"/><line x1="12" y1="3.5" x2="12" y2="7.5"/><line x1="12" y1="16.5" x2="12" y2="20.5"/><line x1="3.5" y1="12" x2="7.5" y2="12"/><line x1="16.5" y1="12" x2="20.5" y2="12"/></svg></span><span><b>AI Engineering</b><span>Agents, LLM apps, MCP, evals and prompt-to-production workflows.</span></span><span class="stamp">AI</span></a>
+        <a class="topic-tile" href="blog.html#t-cloud"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="square"><path d="M7 18h10a4 4 0 0 0 0-8 5 5 0 0 0-9.6-1.3A3.5 3.5 0 0 0 7 18z"/></svg></span><span><b>Cloud &amp; Azure</b><span>Cloud-native architecture, serverless, cost optimisation, .NET on Azure.</span></span><span class="stamp">CL</span></a>
+        <a class="topic-tile" href="blog.html#t-platform"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="square"><rect x="4" y="5" width="16" height="4"/><rect x="4" y="11" width="16" height="4"/><rect x="4" y="17" width="16" height="2.5"/><circle cx="7" cy="7" r="0.5" fill="currentColor"/><circle cx="7" cy="13" r="0.5" fill="currentColor"/></svg></span><span><b>Platform Engineering</b><span>Internal developer platforms, golden paths, DevEx metrics.</span></span><span class="stamp">PE</span></a>
+        <a class="topic-tile" href="blog.html#t-security"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="square"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><circle cx="12" cy="10.8" r="1.6"/><line x1="12" y1="12.4" x2="12" y2="15.5"/></svg></span><span><b>Security</b><span>Passkeys, zero trust, supply-chain hygiene for everyday teams.</span></span><span class="stamp">SE</span></a>
+        <a class="topic-tile" href="blog.html#t-architecture"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="square"><line x1="5" y1="7" x2="19" y2="7"/><line x1="5" y1="19" x2="19" y2="19"/><line x1="8" y1="7" x2="8" y2="19"/><line x1="12" y1="7" x2="12" y2="19"/><line x1="16" y1="7" x2="16" y2="19"/></svg></span><span><b>Architecture</b><span>RAG systems, event-driven design, WebAssembly and the modern stack.</span></span><span class="stamp">EA</span></a>
+        <a class="topic-tile" href="blog.html#t-certs"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="square"><circle cx="12" cy="9" r="4.5"/><path d="M9 12.5l-2 8 5-3 5 3-2-8"/></svg></span><span><b>Certifications</b><span>PMP, PRINCE2, ISACA, TOGAF, CEH — honest guides from someone who sat them all.</span></span><span class="stamp">CE</span></a>
       </div>
     </div>
   </section>
@@ -149,26 +169,29 @@ $ <span class="k">cat</span> focus.yaml
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <div><h2>More recent writing</h2></div>
+        <div><h2><span class="section-idx">03 / EARLIER</span>More recent writing</h2></div>
       </div>
-      <div class="grid cols-3">
-        <article class="post-card">
-          <div class="tags"><span class="tag">Security</span></div>
-          <h3><a href="articles/passkeys-life-after-passwords.html">Passkeys: Life After Passwords</a></h3>
-          <p>Phishing-resistant sign-in is finally mainstream. How passkeys work under the hood and a pragmatic rollout plan for your product.</p>
-          <div class="post-meta"><span>May 11, 2026</span><span class="dot"></span><span>10 min read</span></div>
+      <div class="register">
+        <article class="entry">
+          <span class="entry-folio" data-date="MAY 11 2026">No. 005</span>
+          <time class="entry-date">MAY 11 2026</time>
+          <h3 class="entry-title"><a href="articles/passkeys-life-after-passwords.html">Passkeys: Life After Passwords</a></h3>
+          <span class="entry-stamp">SE</span>
+          <span class="entry-read">10 MIN</span>
         </article>
-        <article class="post-card">
-          <div class="tags"><span class="tag alt">Cloud</span></div>
-          <h3><a href="articles/serverless-cost-optimization-playbook.html">The Serverless Cost Optimisation Playbook</a></h3>
-          <p>Serverless is cheap until it isn't. Nine concrete levers — from right-sizing memory to killing chatty fan-outs — with real bill numbers.</p>
-          <div class="post-meta"><span>Apr 27, 2026</span><span class="dot"></span><span>11 min read</span></div>
+        <article class="entry">
+          <span class="entry-folio" data-date="APR 27 2026">No. 003</span>
+          <time class="entry-date">APR 27 2026</time>
+          <h3 class="entry-title"><a href="articles/serverless-cost-optimization-playbook.html">The Serverless Cost Optimisation Playbook</a></h3>
+          <span class="entry-stamp">CL</span>
+          <span class="entry-read">11 MIN</span>
         </article>
-        <article class="post-card">
-          <div class="tags"><span class="tag warm">Cloud & .NET</span></div>
-          <h3><a href="articles/cloud-native-dotnet-on-azure.html">Cloud-Native .NET on Azure: A 2026 Reference Stack</a></h3>
-          <p>.NET Aspire, Azure Container Apps, managed identities and the opinionated stack I reach for when a team says "we're a Microsoft shop".</p>
-          <div class="post-meta"><span>Apr 13, 2026</span><span class="dot"></span><span>12 min read</span></div>
+        <article class="entry">
+          <span class="entry-folio" data-date="APR 13 2026">No. 002</span>
+          <time class="entry-date">APR 13 2026</time>
+          <h3 class="entry-title"><a href="articles/cloud-native-dotnet-on-azure.html">Cloud-Native .NET on Azure: A 2026 Reference Stack</a></h3>
+          <span class="entry-stamp">CL</span>
+          <span class="entry-read">12 MIN</span>
         </article>
       </div>
     </div>
@@ -178,7 +201,7 @@ $ <span class="k">cat</span> focus.yaml
     <div class="wrap">
       <div class="newsletter">
         <div>
-          <span class="pill-note">✦ Free, every fortnight</span>
+          <span class="pill-note">Free · every fortnight</span>
           <h2 style="margin-top:14px;">The Field Notes newsletter</h2>
           <p>One carefully-written email: what I learned, what broke, and one tool worth your time. No spam, unsubscribe anytime.</p>
         </div>
@@ -242,6 +265,7 @@ $ <span class="k">cat</span> focus.yaml
   <button class="btn btn-primary" data-consent="accept">Accept</button>
 </div>
 
+<script src="assets/js/site-data.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/monetize.js"></script>
 </body>

@@ -20,9 +20,47 @@ Upload the folder to any web host and it runs.
 | `rss.xml` / `sitemap.xml` / `robots.txt` / `ads.txt` | Syndication + SEO + ad verification |
 | `assets/js/monetize.js` | **The single money config file** — see below |
 
-Design: dark-first with light-mode toggle, reading progress bar, sticky
-table-of-contents on articles, mobile responsive, JSON-LD structured data
-(Person + BlogPosting) on every page.
+## Design — "The Calibrated Ledger"
+
+The site is styled as a precision measuring instrument: a machined rule + audit
+ledger. Rules (hairlines + double head-rules) and paper-tint do the work cards
+and shadows used to — `box-shadow`, glassmorphism, blueprint grid and glow washes
+are all removed.
+
+- **Palette** (token-driven, both themes AA): dark = matte instrument-face
+  graphite `#14181A`; light = ledger-paper cream `#F4F1E7`. One pointer colour —
+  Needle Red (`--accent`) — used only where something is "reading" (active nav,
+  focus ring, primary button, the live needle). Ledger Green (`--verified`) for
+  links/PASS, Brass (`--brass`) for cert codes, folios and stamps.
+- **Type = three materials**: Archivo (engraved plate — headings/UI, width axis),
+  Source Serif 4 (ledger prose at a 76ch measure), IBM Plex Mono (every *measured*
+  number — dates, folios, tick labels — always `tabular-nums slashed-zero`). One
+  Google Fonts request; isolate code in the `--font-code` token.
+- **The Credential Rule** (signature, `assets/js/main.js` → `buildCredentialRule`):
+  an inline-SVG machined scale — 17 ticks in 5 domain bands with a red needle and a
+  live `aria-live` readout, exposed as a `role="listbox"` (roving focus,
+  `aria-activedescendant`, keyboard + pointer). It is **static-first**: the
+  server-rendered fallback list of all 17 certs is in the HTML, so no-JS / LCP /
+  `<640px` always see real content; JS enhances it and adds `.enhanced`. Clicking a
+  band drives the existing `aria-pressed` filter chips (single source of truth).
+  Built purely from `window.SITE_DATA` — edit `assets/js/site-data.js` only.
+- **The Register**: `blog.html` and the home lists are one continuous ruled ledger
+  — 48px baseline rows `[No. folio · date · title · domain stamp · read]`, grouped
+  under double-ruled domain headings whose counts re-tally on filter while the
+  canonical folio numbers keep their gaps (the gaps are the filter feedback).
+- **Icons**: every emoji is replaced by a drawn inline-SVG engraving
+  (`currentColor`, 1.25px stroke) or a typographic stamp — including the theme
+  toggle (half-shaded circle) and nav menu (three hairlines).
+- **Motion contract**: nothing moves unless a reading changed — needle travel on
+  selection, the credentials count-up on filter, article margin scroll-gauge. All
+  hover-lifts / staggered reveals removed; everything respects
+  `prefers-reduced-motion`.
+
+Still: dark-first with light-mode toggle, sticky table-of-contents on articles,
+skip link + `:focus-visible`, mobile responsive, JSON-LD structured data
+(Person + BlogPosting) on every page. Monetization plumbing (`.ad-slot`/`data-ad`,
+`monetize.js`, consent banner) is unchanged — ad regions are now ruled-off
+"Advertisement" ledger blocks.
 
 ## 💰 Turning on the money (in order of payoff)
 

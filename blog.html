@@ -11,10 +11,10 @@
 <meta property="og:description" content="Practical, code-first deep dives on AI, cloud and platform engineering.">
 <meta property="og:url" content="https://deepusoman.com/blog.html">
 <link rel="alternate" type="application/rss+xml" title="Deepu Soman — RSS" href="https://deepusoman.com/rss.xml">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230891b2'/><text x='50' y='68' font-size='48' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>DS</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='0' fill='%2314181A'/><text x='50' y='68' font-size='48' font-family='Arial' font-weight='bold' fill='%23D9A648' text-anchor='middle'>DS</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62.5..125,400..700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400;1,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -24,7 +24,7 @@
 <header class="site-header">
   <div class="wrap nav">
     <a class="brand" href="index.html"><span class="mark">DS</span><span>Deepu Soman<small>Engineering Notes</small></span></a>
-    <button class="icon-btn nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+    <button class="icon-btn nav-toggle" aria-label="Menu" aria-expanded="false"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="square" aria-hidden="true"><line x1="2" y1="5.5" x2="18" y2="5.5"/><line x1="2" y1="10" x2="18" y2="10"/><line x1="2" y1="14.5" x2="18" y2="14.5"/></svg></button>
     <nav class="main-nav" aria-label="Main"><ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="blog.html" class="active">Articles</a></li>
@@ -34,7 +34,7 @@
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul></nav>
-    <button class="icon-btn theme" data-theme-toggle aria-label="Toggle theme">☀</button>
+    <button class="icon-btn theme" data-theme-toggle aria-label="Toggle theme"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="1.25"/><path d="M10 2.5 A7.5 7.5 0 0 1 10 17.5 Z" fill="currentColor"/></svg></button>
   </div>
 </header>
 
@@ -48,121 +48,149 @@
 
 <main id="main" class="section">
   <div class="wrap">
-    <div style="display:flex; gap:18px; flex-wrap:wrap; align-items:center; justify-content:space-between; margin-bottom:34px;">
+    <div style="display:flex; gap:18px; flex-wrap:wrap; align-items:center; justify-content:space-between; margin-bottom:30px;">
       <div class="chips" role="group" aria-label="Filter by topic">
         <button class="chip active" data-filter="all">All</button>
         <button class="chip" data-filter="certs">Certifications</button>
         <button class="chip" data-filter="ai">AI Engineering</button>
-        <button class="chip" data-filter="cloud">Cloud & Azure</button>
+        <button class="chip" data-filter="cloud">Cloud &amp; Azure</button>
         <button class="chip" data-filter="platform">Platform</button>
         <button class="chip" data-filter="security">Security</button>
         <button class="chip" data-filter="architecture">Architecture</button>
       </div>
-      <div class="search-box">🔎 <input id="post-search" type="search" placeholder="Search articles…" aria-label="Search articles"></div>
+      <label class="search-box"><span class="search-tag">SEARCH /</span><input id="post-search" type="search" placeholder="filter the ledger…" aria-label="Search articles"></label>
     </div>
 
     <h2 class="sr-only" id="all-articles">All articles</h2>
-    <div class="grid cols-3">
-      <article class="post-card" data-post data-topics="certs management security architecture">
-        <div class="tags"><span class="tag">Certifications</span><span class="tag alt">Featured</span></div>
-        <h3><a href="articles/the-certification-stack.html">The Certification Stack: What 17 Certifications Taught Me About Technology Leadership</a></h3>
-        <p>From MCSA and CCNP to PMP, the ISACA trio and TOGAF — a personal map of two decades of credentials and what each layer actually taught.</p>
-        <div class="post-meta"><span>Jul 8, 2026</span><span class="dot"></span><span>13 min read</span></div>
+    <div class="register">
+      <article class="entry current" data-post data-topics="certs management security architecture" data-group="certs">
+        <div class="entry-topline">
+          <span class="entry-folio">No. 014</span>
+          <span class="entry-date">JUL 08 2026</span>
+          <span class="entry-stamp">CE</span>
+          <span class="entry-read">13 MIN</span>
+        </div>
+        <h3 class="entry-title"><a href="articles/the-certification-stack.html">The Certification Stack: What 17 Certifications Taught Me About Technology Leadership</a><span class="dek">From MCSA and CCNP to PMP, the ISACA trio and TOGAF — a personal map of two decades of credentials and what each layer actually taught. The current entry in the register.</span></h3>
       </article>
 
-      <article class="post-card" data-post data-topics="certs management">
-        <div class="tags"><span class="tag">Certifications</span></div>
-        <h3><a href="articles/pmp-vs-prince2-vs-agile.html">PMP, PRINCE2 or Agile: Choosing Your Project Management Path</a></h3>
-        <p>All four compared by someone who holds them — what each really certifies, and the decision tree the course-sellers won't give you.</p>
-        <div class="post-meta"><span>Jun 29, 2026</span><span class="dot"></span><span>12 min read</span></div>
+      <div class="register-group-head"><span>CERTIFICATIONS</span><span class="count" data-group-count="certs"></span></div>
+
+      <article class="entry" data-post data-topics="certs management" data-group="certs">
+        <span class="entry-folio" data-date="JUN 29 2026">No. 012</span>
+        <time class="entry-date">JUN 29 2026</time>
+        <h3 class="entry-title"><a href="articles/pmp-vs-prince2-vs-agile.html">PMP, PRINCE2 or Agile: Choosing Your Project Management Path</a><span class="figtag">GUIDE</span></h3>
+        <span class="entry-stamp">PD</span>
+        <span class="entry-read">12 MIN</span>
       </article>
 
-      <article class="post-card" data-post data-topics="certs security">
-        <div class="tags"><span class="tag">Certifications</span><span class="tag alt">Security & Audit</span></div>
-        <h3><a href="articles/cisa-cism-crisc-isaca-triangle.html">CISA, CISM, CRISC: Mapping the ISACA Triangle</a></h3>
-        <p>Auditor, manager and risk lenses on one system — which to sit first, and how the trio changes how boards hear you.</p>
-        <div class="post-meta"><span>Jun 15, 2026</span><span class="dot"></span><span>12 min read</span></div>
+      <article class="entry" data-post data-topics="certs security" data-group="certs">
+        <span class="entry-folio" data-date="JUN 15 2026">No. 010</span>
+        <time class="entry-date">JUN 15 2026</time>
+        <h3 class="entry-title"><a href="articles/cisa-cism-crisc-isaca-triangle.html">CISA, CISM, CRISC: Mapping the ISACA Triangle</a><span class="figtag">GUIDE</span></h3>
+        <span class="entry-stamp">SA</span>
+        <span class="entry-read">12 MIN</span>
       </article>
 
-      <article class="post-card" data-post data-topics="certs security">
-        <div class="tags"><span class="tag">Certifications</span><span class="tag alt">Security</span></div>
-        <h3><a href="articles/ceh-chfi-hackers-mindset.html">CEH &amp; CHFI: Learning the Attacker's Mindset — Legally</a></h3>
-        <p>What the EC-Council pair actually teaches, and why the forensic half is the underrated one.</p>
-        <div class="post-meta"><span>Jun 1, 2026</span><span class="dot"></span><span>11 min read</span></div>
+      <article class="entry" data-post data-topics="certs security" data-group="certs">
+        <span class="entry-folio" data-date="JUN 01 2026">No. 008</span>
+        <time class="entry-date">JUN 01 2026</time>
+        <h3 class="entry-title"><a href="articles/ceh-chfi-hackers-mindset.html">CEH &amp; CHFI: Learning the Attacker's Mindset — Legally</a><span class="figtag">GUIDE</span></h3>
+        <span class="entry-stamp">SA</span>
+        <span class="entry-read">11 MIN</span>
       </article>
 
-      <article class="post-card" data-post data-topics="certs architecture">
-        <div class="tags"><span class="tag">Certifications</span><span class="tag warm">Architecture</span></div>
-        <h3><a href="articles/togaf-enterprise-architecture-2026.html">Does TOGAF Still Matter? Enterprise Architecture in the AI Era</a></h3>
-        <p>An honest defence and critique from a certified practitioner — and why AI transformation makes EA governance more relevant, not less.</p>
-        <div class="post-meta"><span>May 18, 2026</span><span class="dot"></span><span>11 min read</span></div>
+      <article class="entry" data-post data-topics="certs architecture" data-group="certs">
+        <span class="entry-folio" data-date="MAY 18 2026">No. 006</span>
+        <time class="entry-date">MAY 18 2026</time>
+        <h3 class="entry-title"><a href="articles/togaf-enterprise-architecture-2026.html">Does TOGAF Still Matter? Enterprise Architecture in the AI Era</a><span class="figtag">GUIDE</span></h3>
+        <span class="entry-stamp">EA</span>
+        <span class="entry-read">11 MIN</span>
       </article>
 
-      <article class="post-card" data-post data-topics="certs platform">
-        <div class="tags"><span class="tag">Certifications</span><span class="tag alt">Operations</span></div>
-        <h3><a href="articles/itil-in-a-devops-world.html">ITIL in a DevOps World: Service Management That Doesn't Slow You Down</a></h3>
-        <p>ITIL and DevOps solve the same problem at different altitudes — what to keep, what to retire, and change control without the Thursday CAB.</p>
-        <div class="post-meta"><span>May 4, 2026</span><span class="dot"></span><span>10 min read</span></div>
+      <article class="entry" data-post data-topics="certs platform" data-group="certs">
+        <span class="entry-folio" data-date="MAY 04 2026">No. 004</span>
+        <time class="entry-date">MAY 04 2026</time>
+        <h3 class="entry-title"><a href="articles/itil-in-a-devops-world.html">ITIL in a DevOps World: Service Management That Doesn't Slow You Down</a><span class="figtag">GUIDE</span></h3>
+        <span class="entry-stamp">OP</span>
+        <span class="entry-read">10 MIN</span>
       </article>
 
-      <article class="post-card" data-post data-topics="ai">
-        <div class="tags"><span class="tag">AI Engineering</span></div>
-        <h3><a href="articles/shipping-ai-agents-to-production.html">Shipping AI Agents to Production: What the Demos Don't Tell You</a></h3>
-        <p>Guardrails, evals, human-in-the-loop design and cost control — a field guide to agent systems that survive contact with real users.</p>
-        <div class="post-meta"><span>Jul 6, 2026</span><span class="dot"></span><span>14 min read</span></div>
+      <div class="register-group-head"><span>AI ENGINEERING</span><span class="count" data-group-count="ai"></span></div>
+
+      <article class="entry" data-post data-topics="ai" data-group="ai">
+        <span class="entry-folio" data-date="JUL 06 2026">No. 013</span>
+        <time class="entry-date">JUL 06 2026</time>
+        <h3 class="entry-title"><a href="articles/shipping-ai-agents-to-production.html">Shipping AI Agents to Production: What the Demos Don't Tell You</a><span class="figtag">FIG.</span></h3>
+        <span class="entry-stamp">AI</span>
+        <span class="entry-read">14 MIN</span>
       </article>
 
-      <article class="post-card" data-post data-topics="ai architecture">
-        <div class="tags"><span class="tag">AI Engineering</span></div>
-        <h3><a href="articles/mcp-usb-c-of-ai-integrations.html">MCP: The USB-C Moment for AI Integrations</a></h3>
-        <p>Why the Model Context Protocol became the standard way to connect LLMs to tools and data — and how to build your first MCP server.</p>
-        <div class="post-meta"><span>Jun 22, 2026</span><span class="dot"></span><span>11 min read</span></div>
+      <article class="entry" data-post data-topics="ai architecture" data-group="ai">
+        <span class="entry-folio" data-date="JUN 22 2026">No. 011</span>
+        <time class="entry-date">JUN 22 2026</time>
+        <h3 class="entry-title"><a href="articles/mcp-usb-c-of-ai-integrations.html">MCP: The USB-C Moment for AI Integrations</a><span class="figtag">FIG.</span></h3>
+        <span class="entry-stamp">AI</span>
+        <span class="entry-read">11 MIN</span>
       </article>
 
-      <article class="post-card" data-post data-topics="ai architecture">
-        <div class="tags"><span class="tag alt">Architecture</span></div>
-        <h3><a href="articles/rag-in-2026-beyond-naive-retrieval.html">RAG in 2026: Beyond Naive Retrieval</a></h3>
-        <p>Hybrid retrieval, re-ranking, agentic RAG and the evaluation loop that keeps answers honest.</p>
-        <div class="post-meta"><span>Jun 8, 2026</span><span class="dot"></span><span>12 min read</span></div>
+      <article class="entry" data-post data-topics="ai architecture" data-group="ai">
+        <span class="entry-folio" data-date="JUN 08 2026">No. 009</span>
+        <time class="entry-date">JUN 08 2026</time>
+        <h3 class="entry-title"><a href="articles/rag-in-2026-beyond-naive-retrieval.html">RAG in 2026: Beyond Naive Retrieval</a><span class="figtag">FIG.</span></h3>
+        <span class="entry-stamp">AR</span>
+        <span class="entry-read">12 MIN</span>
       </article>
 
-      <article class="post-card" data-post data-topics="platform">
-        <div class="tags"><span class="tag warm">Platform</span></div>
-        <h3><a href="articles/platform-engineering-first-idp.html">Platform Engineering: Building Your First Internal Developer Platform</a></h3>
-        <p>Golden paths, not golden cages — 80% of the IDP value with a service catalog, templates and paved-road CI/CD.</p>
-        <div class="post-meta"><span>May 25, 2026</span><span class="dot"></span><span>13 min read</span></div>
+      <div class="register-group-head"><span>ARCHITECTURE</span><span class="count" data-group-count="architecture"></span></div>
+
+      <article class="entry" data-post data-topics="architecture" data-group="architecture">
+        <span class="entry-folio" data-date="MAR 30 2026">No. 001</span>
+        <time class="entry-date">MAR 30 2026</time>
+        <h3 class="entry-title"><a href="articles/webassembly-beyond-the-browser.html">WebAssembly Beyond the Browser</a><span class="figtag">FIG.</span></h3>
+        <span class="entry-stamp">EA</span>
+        <span class="entry-read">11 MIN</span>
       </article>
 
-      <article class="post-card" data-post data-topics="security">
-        <div class="tags"><span class="tag">Security</span></div>
-        <h3><a href="articles/passkeys-life-after-passwords.html">Passkeys: Life After Passwords</a></h3>
-        <p>Phishing-resistant sign-in is finally mainstream. How passkeys work under the hood, plus a pragmatic rollout plan.</p>
-        <div class="post-meta"><span>May 11, 2026</span><span class="dot"></span><span>10 min read</span></div>
+      <div class="register-group-head"><span>CLOUD & AZURE</span><span class="count" data-group-count="cloud"></span></div>
+
+      <article class="entry" data-post data-topics="cloud" data-group="cloud">
+        <span class="entry-folio" data-date="APR 27 2026">No. 003</span>
+        <time class="entry-date">APR 27 2026</time>
+        <h3 class="entry-title"><a href="articles/serverless-cost-optimization-playbook.html">The Serverless Cost Optimisation Playbook</a><span class="figtag">FIG.</span></h3>
+        <span class="entry-stamp">CL</span>
+        <span class="entry-read">11 MIN</span>
       </article>
 
-      <article class="post-card" data-post data-topics="cloud">
-        <div class="tags"><span class="tag alt">Cloud</span></div>
-        <h3><a href="articles/serverless-cost-optimization-playbook.html">The Serverless Cost Optimisation Playbook</a></h3>
-        <p>Nine concrete levers — from right-sizing memory to killing chatty fan-outs — with real bill numbers.</p>
-        <div class="post-meta"><span>Apr 27, 2026</span><span class="dot"></span><span>11 min read</span></div>
+      <article class="entry" data-post data-topics="cloud" data-group="cloud">
+        <span class="entry-folio" data-date="APR 13 2026">No. 002</span>
+        <time class="entry-date">APR 13 2026</time>
+        <h3 class="entry-title"><a href="articles/cloud-native-dotnet-on-azure.html">Cloud-Native .NET on Azure: A 2026 Reference Stack</a><span class="figtag">FIG.</span></h3>
+        <span class="entry-stamp">CL</span>
+        <span class="entry-read">12 MIN</span>
       </article>
 
-      <article class="post-card" data-post data-topics="cloud">
-        <div class="tags"><span class="tag warm">Cloud & .NET</span></div>
-        <h3><a href="articles/cloud-native-dotnet-on-azure.html">Cloud-Native .NET on Azure: A 2026 Reference Stack</a></h3>
-        <p>.NET Aspire, Azure Container Apps and managed identities — the opinionated stack for Microsoft shops.</p>
-        <div class="post-meta"><span>Apr 13, 2026</span><span class="dot"></span><span>12 min read</span></div>
+      <div class="register-group-head"><span>PLATFORM ENGINEERING</span><span class="count" data-group-count="platform"></span></div>
+
+      <article class="entry" data-post data-topics="platform" data-group="platform">
+        <span class="entry-folio" data-date="MAY 25 2026">No. 007</span>
+        <time class="entry-date">MAY 25 2026</time>
+        <h3 class="entry-title"><a href="articles/platform-engineering-first-idp.html">Platform Engineering: Building Your First Internal Developer Platform</a><span class="figtag">FIG.</span></h3>
+        <span class="entry-stamp">PE</span>
+        <span class="entry-read">13 MIN</span>
       </article>
 
-      <article class="post-card" data-post data-topics="architecture">
-        <div class="tags"><span class="tag alt">Architecture</span></div>
-        <h3><a href="articles/webassembly-beyond-the-browser.html">WebAssembly Beyond the Browser</a></h3>
-        <p>Wasm as a universal, sandboxed runtime: plugins, edge compute and the component model, explained with working examples.</p>
-        <div class="post-meta"><span>Mar 30, 2026</span><span class="dot"></span><span>11 min read</span></div>
+      <div class="register-group-head"><span>SECURITY</span><span class="count" data-group-count="security"></span></div>
+
+      <article class="entry" data-post data-topics="security" data-group="security">
+        <span class="entry-folio" data-date="MAY 11 2026">No. 005</span>
+        <time class="entry-date">MAY 11 2026</time>
+        <h3 class="entry-title"><a href="articles/passkeys-life-after-passwords.html">Passkeys: Life After Passwords</a><span class="figtag">FIG.</span></h3>
+        <span class="entry-stamp">SE</span>
+        <span class="entry-read">10 MIN</span>
       </article>
     </div>
 
-    <p id="no-results" class="muted center" style="display:none; padding:40px 0;">No articles match that filter yet — more writing lands every week.</p>
+    <p id="no-results" class="muted center" style="display:none; padding:40px 0;">No entries match that filter — the folio gaps above show what was withheld. More writing lands every week.</p>
 
     <div class="ad-slot leaderboard" data-ad="footer">
       <div class="ad-note">Advertisement<b>Ad slot — activates automatically once AdSense ID is set in assets/js/monetize.js</b></div>
