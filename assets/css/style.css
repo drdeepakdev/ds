@@ -839,3 +839,8 @@ html[data-theme="light"] .tag, html[data-theme="light"] .cert-code { color: #964
 .post-card.featured .art svg { width: 78px; height: 78px; color: var(--blue); opacity: .85; }
 .search-box svg { width: 17px; height: 17px; color: var(--ink-faint); flex: 0 0 auto; }
 .profile-card .socials a svg { width: 18px; height: 18px; display: block; }
+
+/* ---- profile focus tags (replaces skill bars) ---- */
+.profile-card .focus-label { font: 500 0.66rem var(--font-mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 12px; }
+.focus-tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.focus-tags li { font: 500 0.8rem var(--font-body); color: var(--ink-soft); background: var(--bg-inset); border: 1px solid var(--line); border-radius: 999px; padding: 6px 13px; }
