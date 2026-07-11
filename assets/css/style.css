@@ -844,3 +844,15 @@ html[data-theme="light"] .tag, html[data-theme="light"] .cert-code { color: #964
 .profile-card .focus-label { font: 500 0.66rem var(--font-mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 12px; }
 .focus-tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
 .focus-tags li { font: 500 0.8rem var(--font-body); color: var(--ink-soft); background: var(--bg-inset); border: 1px solid var(--line); border-radius: 999px; padding: 6px 13px; }
+
+/* ---- certification-body brand chips (credentials) ---- */
+.cert-top { flex-wrap: wrap; gap: 8px; }
+.cert-issuer {
+  display: inline-flex; align-items: center; gap: 7px;
+  height: 30px; padding: 0 11px; background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.12); border-radius: 7px;
+  font: 700 0.78rem var(--font-body); letter-spacing: -0.01em; line-height: 1;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.16);
+}
+.cert-issuer .ci-mark { display: inline-flex; align-items: center; }
+.cert-issuer .ci-name { white-space: nowrap; }
