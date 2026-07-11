@@ -7,28 +7,28 @@
    ========================================================================== */
 
 :root {
-  /* ground */
-  --bg: #0b1526;
-  --bg-raised: #0e1a2e;
-  --bg-card: #101d33;
-  --bg-inset: #0a1220;
-  --grid-line: rgba(111, 179, 255, 0.05);
-  --line: rgba(154, 178, 211, 0.16);
-  --line-strong: rgba(154, 178, 211, 0.32);
+  /* ground — neutral charcoal so red + black read as the ExpertAims brand */
+  --bg: #17181b;
+  --bg-raised: #1e2024;
+  --bg-card: #212327;
+  --bg-inset: #131417;
+  --grid-line: rgba(255, 255, 255, 0.038);
+  --line: rgba(255, 255, 255, 0.12);
+  --line-strong: rgba(255, 255, 255, 0.24);
   /* ink */
-  --ink: #eaf0f9;
-  --ink-soft: #a9b9d0;
-  --ink-faint: #7c8ca6;
-  /* voice */
-  --accent: #ffa94d;          /* annotation amber — the one bold thing */
-  --accent-ink: #0b1526;      /* text on amber */
-  --accent-soft: rgba(255, 169, 77, 0.13);
-  --blue: #6fb3ff;            /* blueprint blue — links, secondary */
-  --blue-soft: rgba(111, 179, 255, 0.12);
-  --ok: #63d8a2;
-  --code-bg: #081020;
-  --shadow: 0 24px 60px rgba(3, 8, 18, 0.55);
-  --shadow-sm: 0 8px 24px rgba(3, 8, 18, 0.35);
+  --ink: #f2efec;
+  --ink-soft: #bdb9b4;
+  --ink-faint: #8d8983;
+  /* voice — ExpertAims red is the one bold thing */
+  --accent: #E11D26;
+  --accent-ink: #ffffff;
+  --accent-soft: rgba(225, 29, 38, 0.14);
+  --blue: #a6adb5;            /* neutral secondary — icon tints */
+  --blue-soft: rgba(255, 255, 255, 0.055);
+  --ok: #4fb783;
+  --code-bg: #101113;
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+  --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.32);
   --radius: 12px;
   --radius-sm: 8px;
   --font-display: "Fraunces", Georgia, "Times New Roman", serif;
@@ -39,25 +39,25 @@
 }
 
 html[data-theme="light"] {
-  --bg: #f5f8fc;
+  --bg: #faf9f8;
   --bg-raised: #ffffff;
   --bg-card: #ffffff;
-  --bg-inset: #ecf1f8;
-  --grid-line: rgba(23, 95, 203, 0.055);
-  --line: rgba(22, 35, 59, 0.12);
-  --line-strong: rgba(22, 35, 59, 0.26);
-  --ink: #16233b;
-  --ink-soft: #46587a;
-  --ink-faint: #5a6b8e;
-  --accent: #b4590a;
+  --bg-inset: #f2efed;
+  --grid-line: rgba(158, 0, 0, 0.045);
+  --line: rgba(26, 22, 20, 0.12);
+  --line-strong: rgba(26, 22, 20, 0.26);
+  --ink: #1c1a19;
+  --ink-soft: #55504c;
+  --ink-faint: #837c77;
+  --accent: #9E0000;          /* exact ExpertAims deep red */
   --accent-ink: #ffffff;
-  --accent-soft: rgba(180, 89, 10, 0.10);
-  --blue: #175fcb;
-  --blue-soft: rgba(23, 95, 203, 0.09);
+  --accent-soft: rgba(158, 0, 0, 0.08);
+  --blue: #6d7378;
+  --blue-soft: rgba(0, 0, 0, 0.05);
   --ok: #10794f;
-  --code-bg: #101d33;
-  --shadow: 0 20px 48px rgba(22, 35, 59, 0.12);
-  --shadow-sm: 0 6px 18px rgba(22, 35, 59, 0.08);
+  --code-bg: #212327;
+  --shadow: 0 20px 48px rgba(26, 22, 20, 0.12);
+  --shadow-sm: 0 6px 18px rgba(26, 22, 20, 0.08);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -77,7 +77,7 @@ body {
 
 img { max-width: 100%; display: block; }
 
-a { color: var(--blue); text-decoration: none; }
+a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
 
 h1, h2, h3 {
