@@ -9,7 +9,7 @@
    ========================================================================== */
 
 window.SITE_DATA = {
-  credlyProfile: "",
+  credlyProfile: "https://www.credly.com/users/deepusoman",
   learnTranscript: "",
 
   certifications: [
@@ -25,8 +25,8 @@ window.SITE_DATA = {
     { name: "Certified Information Systems Auditor",        code: "CISA",      issuer: "ISACA",               category: "security",       year: null, id: "20166197",           verify: "" },
     { name: "Certified Information Security Manager",       code: "CISM",      issuer: "ISACA",               category: "security",       year: null, id: "2052844",            verify: "" },
     { name: "Certified in Risk & Information Systems Control", code: "CRISC",  issuer: "ISACA",               category: "security",       year: null, id: "242459361",          verify: "" },
-    { name: "Certified Ethical Hacker",                     code: "CEH",       issuer: "EC-Council",          category: "security",       year: null, id: "ECC2405391678",      verify: "" },
-    { name: "Computer Hacking Forensic Investigator",       code: "CHFI",      issuer: "EC-Council",          category: "security",       year: null, id: "ECC8356240971",      verify: "" },
+    { name: "Certified Ethical Hacker",                     code: "CEH",       issuer: "EC-Council",          category: "security",       year: null, id: "ECC2405391678",      verify: "https://aspen.eccouncil.org/Verify" },
+    { name: "Computer Hacking Forensic Investigator",       code: "CHFI",      issuer: "EC-Council",          category: "security",       year: null, id: "ECC8356240971",      verify: "https://aspen.eccouncil.org/Verify" },
     { name: "Microsoft Certified: Cybersecurity Architect Expert", code: "SC-100", issuer: "Microsoft",       category: "security",       year: null, id: "",                   verify: "" },
 
     /* — Enterprise architecture — */

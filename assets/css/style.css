@@ -242,28 +242,28 @@ nav.main-nav { display: contents; }
 
 /* Terminal card ------------------------------------------------------ */
 .hero-card {
-  background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius);
+  background: #141518; border: 1px solid var(--line-strong); border-radius: var(--radius);
   box-shadow: var(--shadow); overflow: hidden;
 }
-html[data-theme="light"] .hero-card { background: #101d33; border-color: #23324d; }
+html[data-theme="light"] .hero-card { background: #141518; border-color: rgba(255,255,255,0.16); }
 html[data-theme="light"] .tag, html[data-theme="light"] .cert-code { color: #964a07; }
 .hero-card .term-head {
   display: flex; align-items: center; gap: 7px; padding: 12px 16px;
-  border-bottom: 1px solid rgba(154, 178, 211, 0.14); background: rgba(8, 16, 32, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10); background: rgba(255, 255, 255, 0.03);
 }
 .term-head i { width: 10px; height: 10px; border-radius: 50%; display: block; }
 .term-head i:nth-child(1) { background: #ff6b6b; }
 .term-head i:nth-child(2) { background: #ffd43b; }
 .term-head i:nth-child(3) { background: #63d8a2; }
-.term-head span { margin-left: auto; font: 500 0.7rem var(--font-mono); color: #7c8ca6; }
+.term-head span { margin-left: auto; font: 500 0.7rem var(--font-mono); color: #8d8983; }
 .hero-card pre {
-  padding: 20px 22px; font: 400 0.8rem/1.8 var(--font-mono); color: #a9b9d0;
+  padding: 20px 22px; font: 400 0.8rem/1.8 var(--font-mono); color: #cfcac4;
   overflow-x: auto; white-space: pre;
 }
-.hero-card pre .c { color: #8593ab; }
-.hero-card pre .k { color: #ffa94d; }
-.hero-card pre .s { color: #63d8a2; }
-.hero-card pre .v { color: #6fb3ff; }
+.hero-card pre .c { color: #7d7873; }
+.hero-card pre .k { color: #E85C4A; }
+.hero-card pre .s { color: #ddd7d0; }
+.hero-card pre .v { color: #9a938c; }
 
 .hero-stats { display: flex; gap: 38px; margin-top: 38px; flex-wrap: wrap; }
 .hero-stats .stat b {
@@ -517,10 +517,10 @@ html[data-theme="light"] .tag, html[data-theme="light"] .cert-code { color: #964
   background: var(--bg-inset); border: 1px solid var(--line);
   padding: 2px 7px; border-radius: 5px; color: var(--accent);
 }
-.article-body pre .c { color: #8593ab; }
-.article-body pre .k { color: #ffa94d; }
-.article-body pre .s { color: #63d8a2; }
-.article-body pre .v { color: #6fb3ff; }
+.article-body pre .c { color: #7d7873; }
+.article-body pre .k { color: #E85C4A; }
+.article-body pre .s { color: #ddd7d0; }
+.article-body pre .v { color: #9a938c; }
 .article-body pre .f { color: #ffd43b; }
 
 .callout {
