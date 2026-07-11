@@ -59,7 +59,7 @@ window.MONETIZE = {
   googleSiteVerification: "",        // also mirror into <meta> if you prefer
 
   /* Sponsorship / contact */
-  sponsorEmail: "deepusoman@gmail.com"
+  sponsorEmail: "hello@deepusoman.com"
 };
 
 /* ====================================================================
