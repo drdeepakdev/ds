@@ -832,3 +832,10 @@ html[data-theme="light"] .tag, html[data-theme="light"] .cert-code { color: #964
 .focus-row .bar { height: 7px; border-radius: 99px; background: var(--bg-inset); border: 1px solid var(--line); overflow: hidden; }
 .focus-row .bar i { display: block; height: 100%; border-radius: 99px; background: var(--accent); transition: width 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
 @media (max-width: 640px) { .focus-row { grid-template-columns: 1fr; gap: 6px; } .focus-row em { text-align: left; } }
+
+/* ---- custom icon sizing ---- */
+.topic-tile .ico, .cert-ico { color: var(--blue); }
+.topic-tile .ico svg, .cert-ico svg { width: 22px; height: 22px; display: block; }
+.post-card.featured .art svg { width: 78px; height: 78px; color: var(--blue); opacity: .85; }
+.search-box svg { width: 17px; height: 17px; color: var(--ink-faint); flex: 0 0 auto; }
+.profile-card .socials a svg { width: 18px; height: 18px; display: block; }
