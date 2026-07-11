@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Security Copilot and the AI-vs-AI Front Line — Deepu Soman</title>
+<meta name="description" content="The same class of AI writing the phishing is now triaging it. Microsoft Security Copilot, the Phishing Triage Agent, and what AI-vs-AI actually means in a real SOC — from someone who runs security for a living.">
+<link rel="canonical" href="https://deepusoman.com/articles/security-copilot-ai-front-line.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Security Copilot and the AI-vs-AI Front Line">
+<meta property="og:description" content="The same class of AI writing the phishing is now triaging it. Microsoft Security Copilot, the Phishing Triage Agent, and what AI-vs-AI actually means in a real SOC — from someone who runs security for a living.">
+<meta property="og:url" content="https://deepusoman.com/articles/security-copilot-ai-front-line.html">
+<meta property="og:image" content="https://deepusoman.com/assets/og-image.png">
+<meta property="article:published_time" content="2026-07-09">
+<meta property="article:author" content="Deepu Soman">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" type="application/rss+xml" title="Deepu Soman — RSS" href="https://deepusoman.com/rss.xml">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230891b2'/><text x='50' y='60' text-anchor='middle' font-family='Arial' font-size='42' font-weight='bold' fill='white'>DS</text><line x1='28' y1='79' x2='72' y2='79' stroke='%23ffa94d' stroke-width='5' stroke-linecap='round'/><line x1='62' y1='79' x2='62' y2='68' stroke='%23ffa94d' stroke-width='5' stroke-linecap='round'/><circle cx='62' cy='64.5' r='5' fill='%23ffa94d'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Security Copilot and the AI-vs-AI Front Line",
+  "description": "The same class of AI writing the phishing is now triaging it. Microsoft Security Copilot, the Phishing Triage Agent, and what AI-vs-AI actually means in a real SOC — from someone who runs security for a living.",
+  "author": {"@type": "Person", "name": "Deepu Soman", "url": "https://deepusoman.com/about.html"},
+  "datePublished": "2026-07-09",
+  "mainEntityOfPage": "https://deepusoman.com/articles/security-copilot-ai-front-line.html"
+}
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://deepusoman.com/"},{"@type":"ListItem","position":2,"name":"Articles","item":"https://deepusoman.com/blog.html"},{"@type":"ListItem","position":3,"name":"Security Copilot and the AI-vs-AI Front Line","item":"https://deepusoman.com/articles/security-copilot-ai-front-line.html"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div id="progress"></div>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="../index.html"><svg class="brand-mark" viewBox="0 0 100 100" width="36" height="36" role="img" aria-label="Deepu Soman"><rect width="100" height="100" rx="22" fill="#0891b2"/><text x="50" y="60" text-anchor="middle" font-family="'IBM Plex Sans', Arial, sans-serif" font-size="42" font-weight="700" fill="#ffffff">DS</text><line x1="28" y1="79" x2="72" y2="79" stroke="#ffa94d" stroke-width="5" stroke-linecap="round" opacity="0.9"/><line x1="62" y1="79" x2="62" y2="68" stroke="#ffa94d" stroke-width="5" stroke-linecap="round"/><circle cx="62" cy="64.5" r="5" fill="#ffa94d"/></svg><span>Deepu Soman<small>IT&nbsp;Leadership &amp; Certifications</small></span></a>
+    <button class="icon-btn nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+    <nav class="main-nav" aria-label="Main"><ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../blog.html" class="active">Articles</a></li>
+      <li><a href="../credentials.html">Credentials</a></li>
+      <li><a href="../community.html">Community</a></li>
+      <li><a href="../toolbox.html">Toolbox</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul></nav>
+    <button class="icon-btn theme" data-theme-toggle aria-label="Toggle theme">☀</button>
+  </div>
+</header>
+
+<main id="main" class="wrap article-shell">
+  <article class="article">
+    <div class="article-head">
+      <div class="tags"><span class="tag">Security &amp; Audit</span><span class="tag alt">AI &amp; Automation</span></div>
+      <h1>Security Copilot and the AI-vs-AI Front Line</h1>
+      <p class="standfirst">Attackers got an AI. So did the defenders. Microsoft Security Copilot triages phishing hundreds of times faster than a human analyst — which is genuinely useful and quietly dangerous, in ways worth being precise about. Notes from the AI-vs-AI front line.</p>
+      <div class="byline">
+        <div class="avatar">DS</div>
+        <div><b>Deepu Soman</b><span>Published Jul 9, 2026 · 11 min read</span></div>
+        <div class="share">
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdeepusoman.com%2Farticles%2Fsecurity-copilot-ai-front-line.html" target="_blank" rel="noopener" aria-label="Share on LinkedIn">in</a>
+          <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdeepusoman.com%2Farticles%2Fsecurity-copilot-ai-front-line.html" target="_blank" rel="noopener" aria-label="Share on X">𝕏</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="article-body">
+      <p>I've written before that email is still the front door for most attacks, and that the modern phishing message is AI-written — clean grammar, correct local idiom, your company's tone, none of the old tells. That's one half of the story. The other half arrived this year: the defenders got the same class of tool. Microsoft's Security Copilot now runs a Phishing Triage Agent that helps analysts find the genuinely malicious mail dramatically faster — the figure Microsoft quotes is up to 550% faster triage. So we've arrived at a strange new normal where an AI writes the attack and an AI helps sort the response. It's worth being precise about what that does and doesn't change, because the marketing on both sides is loud.</p>
+
+      <h2 id="symmetry">1. Both sides got an AI, and the symmetry is the point</h2>
+      <p>The uncomfortable truth of 2026 security is that generative AI lowered the cost of a convincing attack far faster than it raised the cost of defending. One competent attacker can now produce thousands of tailored, well-written phishing messages that would once have taken a team. That flood is the problem Security Copilot is really answering: not that human analysts can't spot a bad email, but that they can't spot ten thousand of them before the one that matters lands. AI on defence isn't about being cleverer than the attacker. It's about matching their new throughput so your people can still get to the decision that counts.</p>
+
+      <h2 id="does">2. What Security Copilot actually does</h2>
+      <p>Stripped of the branding, the useful reality is triage at machine speed. The Phishing Triage Agent works through the flood of reported and suspected messages, does the tedious correlation a junior analyst would do — pulling the signals together, checking the indicators, ranking what's likely malicious — and hands the analyst a prioritised, explained shortlist instead of an undifferentiated queue. It's the same move as the rest of the Copilot family: take the high-volume, low-judgement grind off the human and give them back the time for the part that needs a brain. For a small security team drowning in alerts, that's not a gimmick. That's the difference between investigating the real incident today versus next week.</p>
+
+      <div class="ad-slot in-article" data-ad="inArticle">
+        <div class="ad-note">Advertisement<b>In-article ad slot — configure in assets/js/monetize.js</b></div>
+      </div>
+
+      <h2 id="multiplier">3. It's an analyst multiplier, not a replacement</h2>
+      <p>Here's where I part company with the more breathless takes. A triage agent makes a good analyst faster; it does not make you an analyst. It's excellent at "which of these ten thousand emails deserve a human's attention" and genuinely bad at the judgement calls that define real security work — is this anomaly an attack or a badly-behaved integration, is this insider activity malicious or just unusual, is the confident-sounding conclusion actually right. Hand those to the agent and you've automated the production of plausible-looking mistakes. The teams that win with this tooling use it to clear the grind and reinvest the reclaimed hours in the hard analysis. The teams that lose treat it as a reason to think less.</p>
+      <blockquote><p>AI on the SOC floor raises your floor, not your ceiling. It stops good analysts drowning in volume. It does not turn thin coverage into deep expertise — and pretending it does is how you get quietly owned.</p></blockquote>
+
+      <h2 id="trap">4. The governance trap nobody's talking about</h2>
+      <p>Now the auditor in me has to speak up, because there's a trap here that the excitement obscures. A security AI agent, by definition, has privileged reach — into your mail, your alerts, your security telemetry, sometimes your response actions. That makes it one of the most sensitive identities in the whole estate, and therefore one of the most attractive targets. An attacker who can influence, poison or hijack your defensive AI is attacking the thing you trust most. So the same discipline I argued for with Copilot generally applies double here: the agent needs a named owner, least-privilege scope, its own monitoring, and a place in the control plane. Microsoft has moved agent security under a centralised control plane for exactly this reason. Defensive AI that isn't itself governed is a single point of failure wearing a superhero cape.</p>
+
+      <h2 id="human">5. The human you can't patch</h2>
+      <p>For all the AI-vs-AI framing, the target in the middle is still a person. Business email compromise still costs organisations billions a year, and the reason isn't weak filters — it's that a well-crafted message convinces a human to move money or change a payment detail. No triage agent changes that last mile. What holds it is the boring, human-plus-process control I keep coming back to: out-of-band verification for anything financial, so that a convincing email or even a convincing voice call isn't sufficient on its own. AI can help you find the malicious message faster. It cannot substitute for a culture where "the email looked completely legitimate" is never the whole story before money moves.</p>
+
+      <h2 id="fit">6. Where it fits in a real SOC</h2>
+      <p>So where does this land for a practitioner deciding whether to adopt it? My honest read: Security Copilot and its agents are a genuine step forward for the specific, painful problem of alert and phishing volume, and if you run a lean team the time they hand back is real. Adopt it — but adopt it as an analyst multiplier sitting on top of a functioning security programme, not as a substitute for one. Keep the human judgement, keep the out-of-band verification for money, and govern the defensive agents as carefully as you'd govern any privileged account. Do that, and the AI-vs-AI front line tilts your way. Skip it, and you've just given yourself a faster way to be confidently wrong. If you're weighing where AI fits in your security operations, <a href="../contact.html">I'm happy to compare notes</a>.</p>
+    </div>
+
+    <div class="author-box">
+      <div class="avatar">DS</div>
+      <div>
+        <p class="author-name" style="font-family:var(--font-display);font-weight:620;font-size:1.1rem;margin-bottom:6px;">Deepu Soman</p>
+        <p>IT leader in Kuwait with 20+ years across infrastructure, project &amp; programme management and cyber security. Holds CISA, CISM, CRISC, CEH and CHFI alongside 15 more certifications. Learning in public.</p>
+        <div class="links"><a href="../about.html">About</a><a href="https://www.linkedin.com/in/deepusoman/" target="_blank" rel="noopener">LinkedIn</a><a href="../rss.xml">RSS</a></div>
+      </div>
+    </div>
+
+    <nav class="post-nav" aria-label="More articles">
+      <a href="microsoft-copilot-lands-in-it.html"><span>← Previous</span><b>Microsoft Copilot Lands in IT</b></a>
+      <a class="next" href="governing-ai-auditor-playbook.html"><span>Next →</span><b>Governing AI Before It Governs You</b></a>
+    </nav>
+  </article>
+
+  <aside class="article-aside">
+    <div class="aside-sticky">
+      <div class="toc">
+        <h4>In this article</h4>
+        <ol>
+          <li><a href="#symmetry">1 · Both sides got an AI</a></li>
+          <li><a href="#does">2 · What Security Copilot does</a></li>
+          <li><a href="#multiplier">3 · A multiplier, not a replacement</a></li>
+          <li><a href="#trap">4 · The governance trap</a></li>
+          <li><a href="#human">5 · The human you can't patch</a></li>
+          <li><a href="#fit">6 · Where it fits in a real SOC</a></li>
+        </ol>
+      </div>
+      <div class="ad-slot sidebar-ad" data-ad="sidebar">
+        <div class="ad-note">Advertisement<b>Sidebar ad slot</b></div>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-about">
+      <a class="brand" href="../index.html"><svg class="brand-mark" viewBox="0 0 100 100" width="36" height="36" role="img" aria-label="Deepu Soman"><rect width="100" height="100" rx="22" fill="#0891b2"/><text x="50" y="60" text-anchor="middle" font-family="'IBM Plex Sans', Arial, sans-serif" font-size="42" font-weight="700" fill="#ffffff">DS</text><line x1="28" y1="79" x2="72" y2="79" stroke="#ffa94d" stroke-width="5" stroke-linecap="round" opacity="0.9"/><line x1="62" y1="79" x2="62" y2="68" stroke="#ffa94d" stroke-width="5" stroke-linecap="round"/><circle cx="62" cy="64.5" r="5" fill="#ffa94d"/></svg><span>Deepu Soman<small>IT&nbsp;Leadership &amp; Certifications</small></span></a>
+      <p>Practical writing on IT infrastructure, project delivery and cyber security — 20+ years, learning in public.</p>
+    </div>
+    <div>
+      <p class="footer-heading">Explore</p>
+      <ul>
+        <li><a href="../blog.html">All articles</a></li>
+        <li><a href="../credentials.html">Credentials</a></li>
+        <li><a href="../community.html">Community &amp; talks</a></li>
+        <li><a href="../toolbox.html">Toolbox</a></li>
+        <li><a href="../about.html">About</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-heading">Tracks</p>
+      <ul>
+        <li><a href="../blog.html#t-certs">Certifications</a></li>
+        <li><a href="../blog.html#t-management">Project &amp; Delivery</a></li>
+        <li><a href="../blog.html#t-security">Security &amp; Audit</a></li>
+        <li><a href="../blog.html#t-architecture">Architecture</a></li>
+        <li><a href="../blog.html#t-infrastructure">Infrastructure</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-heading">Connect</p>
+      <ul>
+        <li><a href="https://www.linkedin.com/in/deepusoman/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="../contact.html">Email</a></li>
+        <li><a href="../contact.html">Support</a></li>
+        <li><a href="../rss.xml">RSS feed</a></li>
+        <li><a href="../privacy.html">Privacy policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© <span data-year>2026</span> Deepu Soman. All rights reserved.</span>
+    <span>Built for the community · <a href="../rss.xml">RSS</a> · <a href="../sitemap.xml">Sitemap</a></span>
+  </div>
+</footer>
+
+<div class="consent" id="consent" role="region" aria-label="Cookie consent">
+  <p>This site uses cookies for advertising (Google AdSense) to keep the content free. You can accept or decline — articles work either way.</p>
+  <button class="btn btn-ghost" data-consent="decline">Decline</button>
+  <button class="btn btn-primary" data-consent="accept">Accept</button>
+</div>
+
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/monetize.js"></script>
+</body>
+</html>
