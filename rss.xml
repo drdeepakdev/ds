@@ -128,5 +128,47 @@
     <pubDate>Mon, 11 May 2026 09:00:00 +0000</pubDate>
     <description>Phishing-resistant sign-in is finally mainstream. How passkeys work under the hood, plus a pragmatic rollout plan for your product.</description>
   </item>
+  <item>
+    <title>A Decade of Ransomware: From WannaCry to Triple Extortion</title>
+    <link>https://deepusoman.com/articles/a-decade-of-ransomware.html</link>
+    <guid>https://deepusoman.com/articles/a-decade-of-ransomware.html</guid>
+    <pubDate>Mon, 20 Apr 2026 09:00:00 +0000</pubDate>
+    <description>Ten years of ransomware from nuisance to existential risk, and what each turning point taught.</description>
+  </item>
+  <item>
+    <title>The Breaches That Rewrote the Rules: 2017–2026</title>
+    <link>https://deepusoman.com/articles/breaches-that-rewrote-the-rules.html</link>
+    <guid>https://deepusoman.com/articles/breaches-that-rewrote-the-rules.html</guid>
+    <pubDate>Mon, 06 Apr 2026 09:00:00 +0000</pubDate>
+    <description>Equifax, SolarWinds, Log4Shell, MOVEit — how risk moved from your walls to your suppliers'.</description>
+  </item>
+  <item>
+    <title>Ten Years on the Microsoft Stack: From On-Prem Exchange to Copilot</title>
+    <link>https://deepusoman.com/articles/ten-years-microsoft-cloud.html</link>
+    <guid>https://deepusoman.com/articles/ten-years-microsoft-cloud.html</guid>
+    <pubDate>Mon, 16 Mar 2026 09:00:00 +0000</pubDate>
+    <description>On-prem to cloud to AI, the certification earthquake, and identity as the new perimeter.</description>
+  </item>
+  <item>
+    <title>A Decade of Project Delivery: From the Agile Wars to Hybrid-by-Default</title>
+    <link>https://deepusoman.com/articles/project-delivery-decade.html</link>
+    <guid>https://deepusoman.com/articles/project-delivery-decade.html</guid>
+    <pubDate>Tue, 24 Feb 2026 09:00:00 +0000</pubDate>
+    <description>The methodology wars, 2020's remote shock, PMI's pivot and ITIL 4 — how delivery settled on hybrid.</description>
+  </item>
+  <item>
+    <title>Ten Years of Certifications: What Changed in PMP, ITIL, ISACA, Cisco and Microsoft</title>
+    <link>https://deepusoman.com/articles/certifications-decade.html</link>
+    <guid>https://deepusoman.com/articles/certifications-decade.html</guid>
+    <pubDate>Mon, 09 Feb 2026 09:00:00 +0000</pubDate>
+    <description>Microsoft role-based, the MCSE retirement, Cisco 2020, the 2021 PMP overhaul and ITIL 4.</description>
+  </item>
+  <item>
+    <title>The Networking Decade: From MPLS and MCSE to SASE and Zero Trust</title>
+    <link>https://deepusoman.com/articles/networking-decade.html</link>
+    <guid>https://deepusoman.com/articles/networking-decade.html</guid>
+    <pubDate>Mon, 26 Jan 2026 09:00:00 +0000</pubDate>
+    <description>SD-WAN, the cloud dissolving the perimeter, and zero trust and SASE becoming the model.</description>
+  </item>
 </channel>
 </rss>
