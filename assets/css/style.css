@@ -139,6 +139,7 @@ h4 { font-family: var(--font-body); }
   background: var(--accent); color: var(--accent-ink);
   font: 700 0.8rem var(--font-mono); letter-spacing: 0.02em;
 }
+.brand .brand-mark { width: 36px; height: 36px; flex: 0 0 36px; display: block; border-radius: 8px; }
 .brand small {
   display: block; font: 500 0.62rem var(--font-mono);
   color: var(--ink-faint); letter-spacing: 0.18em; text-transform: uppercase;

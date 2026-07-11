@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Auditor in the Room: How CISA Changed the Way I Run My Own Estate — Deepu Soman</title>
+<meta name="description" content="I came to security from the attacker's side — CEH, CHFI — then sat CISA and started thinking like the auditor across the table. How the audit mindset, evidence over assurances, changes how you actually run IT, set against the 2026 threat landscape.">
+<link rel="canonical" href="https://deepusoman.com/articles/cisa-auditor-mindset-running-estate.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Auditor in the Room: How CISA Changed the Way I Run My Own Estate">
+<meta property="og:description" content="I came to security from the attacker's side — CEH, CHFI — then sat CISA and started thinking like the auditor across the table. How the audit mindset, evidence over assurances, changes how you actually run IT, set against the 2026 threat landscape.">
+<meta property="og:url" content="https://deepusoman.com/articles/cisa-auditor-mindset-running-estate.html">
+<meta property="og:image" content="https://deepusoman.com/assets/og-image.png">
+<meta property="article:published_time" content="2026-06-10">
+<meta property="article:author" content="Deepu Soman">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" type="application/rss+xml" title="Deepu Soman — RSS" href="https://deepusoman.com/rss.xml">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230891b2'/><text x='50' y='60' text-anchor='middle' font-family='Arial' font-size='42' font-weight='bold' fill='white'>DS</text><line x1='28' y1='79' x2='72' y2='79' stroke='%23ffa94d' stroke-width='5' stroke-linecap='round'/><line x1='62' y1='79' x2='62' y2='68' stroke='%23ffa94d' stroke-width='5' stroke-linecap='round'/><circle cx='62' cy='64.5' r='5' fill='%23ffa94d'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "The Auditor in the Room: How CISA Changed the Way I Run My Own Estate",
+  "description": "I came to security from the attacker's side — CEH, CHFI — then sat CISA and started thinking like the auditor across the table. How the audit mindset, evidence over assurances, changes how you actually run IT, set against the 2026 threat landscape.",
+  "author": {"@type": "Person", "name": "Deepu Soman", "url": "https://deepusoman.com/about.html"},
+  "datePublished": "2026-06-10",
+  "mainEntityOfPage": "https://deepusoman.com/articles/cisa-auditor-mindset-running-estate.html"
+}
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://deepusoman.com/"},{"@type":"ListItem","position":2,"name":"Articles","item":"https://deepusoman.com/blog.html"},{"@type":"ListItem","position":3,"name":"The Auditor in the Room: How CISA Changed the Way I Run My Own Estate","item":"https://deepusoman.com/articles/cisa-auditor-mindset-running-estate.html"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div id="progress"></div>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="../index.html"><svg class="brand-mark" viewBox="0 0 100 100" width="36" height="36" role="img" aria-label="Deepu Soman"><rect width="100" height="100" rx="22" fill="#0891b2"/><text x="50" y="60" text-anchor="middle" font-family="'IBM Plex Sans', Arial, sans-serif" font-size="42" font-weight="700" fill="#ffffff">DS</text><line x1="28" y1="79" x2="72" y2="79" stroke="#ffa94d" stroke-width="5" stroke-linecap="round" opacity="0.9"/><line x1="62" y1="79" x2="62" y2="68" stroke="#ffa94d" stroke-width="5" stroke-linecap="round"/><circle cx="62" cy="64.5" r="5" fill="#ffa94d"/></svg><span>Deepu Soman<small>IT&nbsp;Leadership &amp; Certifications</small></span></a>
+    <button class="icon-btn nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+    <nav class="main-nav" aria-label="Main"><ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../blog.html" class="active">Articles</a></li>
+      <li><a href="../credentials.html">Credentials</a></li>
+      <li><a href="../community.html">Community</a></li>
+      <li><a href="../toolbox.html">Toolbox</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul></nav>
+    <button class="icon-btn theme" data-theme-toggle aria-label="Toggle theme">☀</button>
+  </div>
+</header>
+
+<main id="main" class="wrap article-shell">
+  <article class="article">
+    <div class="article-head">
+      <div class="tags"><span class="tag">Security &amp; Audit</span><span class="tag alt">Perspective</span></div>
+      <h1>The Auditor in the Room: How CISA Changed the Way I Run My Own Estate</h1>
+      <p class="standfirst">I learned to break into systems before I learned to audit them. Reversing that instinct — from &quot;how would I attack this?&quot; to &quot;could I prove this control works to a sceptic?&quot; — did more for how I actually run IT than any tool ever did. Here's the shift, and why it matters more in 2026 than it did when I sat the exam.</p>
+      <div class="byline">
+        <div class="avatar">DS</div>
+        <div><b>Deepu Soman</b><span>Published Jun 10, 2026 · 12 min read</span></div>
+        <div class="share">
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdeepusoman.com%2Farticles%2Fcisa-auditor-mindset-running-estate.html" target="_blank" rel="noopener" aria-label="Share on LinkedIn">in</a>
+          <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdeepusoman.com%2Farticles%2Fcisa-auditor-mindset-running-estate.html" target="_blank" rel="noopener" aria-label="Share on X">𝕏</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="article-body">
+      <p>My security education started on the offensive side. CEH taught me to think like someone trying to get in; CHFI taught me to think like someone reconstructing what happened after they did. Both are valuable, and both left me with a slightly dangerous confidence — the feeling that if I could think like an attacker, I understood security. Then I sat CISA, and the auditor's chair turned that confidence on its head.</p>
+      <p>Because the auditor doesn't ask "is this secure?" The auditor asks "can you <em>prove</em> it's secure, to someone who has no reason to take your word for it?" Those are very different questions, and the gap between them is where most real-world security quietly fails. I've come to think the audit mindset is the most underrated thing in the whole discipline — and in a 2026 threat landscape that's meaner than the one I trained in, it's the mindset that actually holds up.</p>
+
+      <h2 id="poacher">1. Poacher to gamekeeper</h2>
+      <p>The offensive mindset is seductive because it's concrete. You find a hole, you demonstrate it, you feel clever. But it has a blind spot: it optimises for the exciting failure, the clever exploit, the thing that makes a good war story. Most breaches aren't clever. They're a disabled log, an expired certificate nobody renewed, an offboarded employee whose access lingered for months, a backup that was never tested. Boring, systemic, and invisible to someone only looking for the exciting way in.</p>
+      <p>CISA retrained my attention onto exactly that boring, systemic layer. The auditor's question — <em>show me the evidence this control operated, every time, over the period</em> — surfaces the rot that attacker-thinking skips right over. I stopped asking only "how would I break in?" and started also asking "if I had to prove to a hostile reviewer that this environment is controlled, where would I fall apart?" That second question found far more real problems than the first ever did.</p>
+
+      <h2 id="evidence">2. Evidence, not assurances</h2>
+      <p>The phrase I took from CISA and never let go of is "evidence, not assurances." In IT we run on assurances — "yes, we patch," "of course we review access," "backups are handled." An auditor accepts none of it. Show the patch report. Show the access review with dates and sign-off. Show the successful restore. If it isn't evidenced, as far as the audit is concerned it didn't happen, and — this is the part that changed me — as far as reality is concerned it probably didn't either.</p>
+      <p>Running my own estates, I started holding myself to that standard before anyone external could. Not "we have a process" but "here is the artefact that proves the process ran." It's more work, and it's the difference between believing you're in control and actually being in control. The belief is comfortable. The evidence is true.</p>
+      <blockquote><p>An assurance is a story you tell yourself. Evidence is what survives contact with someone who doesn't trust you. Run your estate for the second one.</p></blockquote>
+
+      <div class="ad-slot in-article" data-ad="inArticle">
+        <div class="ad-note">Advertisement<b>In-article ad slot — configure in assets/js/monetize.js</b></div>
+      </div>
+
+      <h2 id="controls">3. The controls that survive both the audit and the attacker</h2>
+      <p>Here's what I find reassuring: the controls an auditor cares about and the controls that actually stop a 2026 attacker are, overwhelmingly, the same controls. Ransomware this year runs on multi-extortion — encrypt the data, steal a copy, threaten to leak it — and the thing that defeats it isn't magic, it's immutable, tested backups plus tight identity, exactly what an auditor asks you to evidence. Attackers increasingly get in through stolen identity rather than clever exploits, and the defence is MFA, conditional access and prompt de-provisioning — again, straight off the audit checklist.</p>
+      <p>That convergence is the whole argument for the audit mindset. You are not choosing between "satisfying the auditor" and "stopping the attacker." Done honestly, they're the same programme of work. The organisations that treat audit as a box-ticking distraction from real security have misunderstood both.</p>
+
+      <h2 id="email">4. The front door hasn't moved — but the lock-picks got better</h2>
+      <p>If there's one place the threat landscape has genuinely shifted since I trained, it's the quality of the attempt at the front door. Email is still where most incidents begin, but business email compromise now costs organisations billions a year, and the messages themselves have levelled up. AI writes them now — clean grammar, correct local idiom, your company's tone, tailored to the recipient's role. The tells we taught users to spot are gone. Voice phishing has climbed to become one of the top initial-access methods, because a convincing phone call sidesteps every email filter you own.</p>
+      <p>The auditor's response to this is unglamorous and correct: don't rely on humans being perfect. Evidence the technical controls that don't depend on someone spotting a fake — domain authentication so your brand can't be spoofed, filtering that catches what it can, MFA so a stolen password isn't game over, and a verification step for anything that moves money or changes payment details, no matter how legitimate the request sounds. You can't audit "our staff are vigilant." You can audit whether the controls that survive a vigilant-staff failure are actually in place.</p>
+
+      <h2 id="risk">5. Risk you accept versus risk you ignore</h2>
+      <p>CRISC added the last piece, and it's a distinction most technical people get wrong: there's a world of difference between a risk you've <em>accepted</em> and a risk you've <em>ignored</em>. An accepted risk has a name, an owner, a documented decision that someone with the authority to make it looked at the exposure and chose to live with it. An ignored risk is just a landmine nobody's admitted is there. The two can look identical on a quiet day. They look very different the morning after an incident, when the question becomes "did anyone decide this was acceptable, or did we just never look?"</p>
+      <p>So I run a real risk register — not the audit-theatre kind that gets updated once a year, but a living record of the exposures I know about, who owns each, and what we've decided to do. It means that when something does go wrong, I can show it was a considered decision rather than negligence. That's not just good governance; in a regulated environment it's the difference between a defensible position and an indefensible one.</p>
+
+      <h2 id="run">6. Run it like the audit is tomorrow</h2>
+      <p>The habit all of this collapses into is simple to state and hard to live: run your estate as though a competent, sceptical auditor is arriving tomorrow morning. Not in a panic — as a standing posture. Could you produce the evidence, today, that your controls are operating? If yes, you're almost certainly also in decent shape against the actual threats, because the controls overlap so heavily. If the honest answer is "I'd have to scramble," that scramble is the exact gap an attacker is looking for.</p>
+      <p>Coming from the offensive side, I resisted this for years — it felt like paperwork getting in the way of real security. I had it backwards. The auditor's discipline <em>is</em> real security; it's just security that has to prove itself rather than merely feel confident. If you're trying to move an estate from "we think we're fine" to "we can show we're fine," <a href="../contact.html">I'm happy to talk it through</a>.</p>
+    </div>
+
+    <div class="author-box">
+      <div class="avatar">DS</div>
+      <div>
+        <p class="author-name" style="font-family:var(--font-display);font-weight:620;font-size:1.1rem;margin-bottom:6px;">Deepu Soman</p>
+        <p>IT leader in Kuwait with 20+ years across infrastructure, project &amp; programme management and cyber security. Holds CISA, CISM, CRISC, CEH and CHFI alongside 15 more certifications. Learning in public.</p>
+        <div class="links"><a href="../about.html">About</a><a href="https://www.linkedin.com/in/deepusoman/" target="_blank" rel="noopener">LinkedIn</a><a href="../rss.xml">RSS</a></div>
+      </div>
+    </div>
+
+    <nav class="post-nav" aria-label="More articles">
+      <a href="microsoft-365-security-baseline.html"><span>← Previous</span><b>The Microsoft 365 Security Baseline I Stand Up on Day One</b></a>
+      <a class="next" href="ccnp-in-a-sase-world.html"><span>Next →</span><b>Does CCNP Still Matter When Everything's Moving to SASE?</b></a>
+    </nav>
+  </article>
+
+  <aside class="article-aside">
+    <div class="aside-sticky">
+      <div class="toc">
+        <h4>In this article</h4>
+        <ol>
+          <li><a href="#poacher">1 · Poacher to gamekeeper</a></li>
+          <li><a href="#evidence">2 · Evidence, not assurances</a></li>
+          <li><a href="#controls">3 · Controls that survive both</a></li>
+          <li><a href="#email">4 · The front door in 2026</a></li>
+          <li><a href="#risk">5 · Risk you accept vs risk you ignore</a></li>
+          <li><a href="#run">6 · Run it like the audit is tomorrow</a></li>
+        </ol>
+      </div>
+      <div class="ad-slot sidebar-ad" data-ad="sidebar">
+        <div class="ad-note">Advertisement<b>Sidebar ad slot</b></div>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-about">
+      <a class="brand" href="../index.html"><svg class="brand-mark" viewBox="0 0 100 100" width="36" height="36" role="img" aria-label="Deepu Soman"><rect width="100" height="100" rx="22" fill="#0891b2"/><text x="50" y="60" text-anchor="middle" font-family="'IBM Plex Sans', Arial, sans-serif" font-size="42" font-weight="700" fill="#ffffff">DS</text><line x1="28" y1="79" x2="72" y2="79" stroke="#ffa94d" stroke-width="5" stroke-linecap="round" opacity="0.9"/><line x1="62" y1="79" x2="62" y2="68" stroke="#ffa94d" stroke-width="5" stroke-linecap="round"/><circle cx="62" cy="64.5" r="5" fill="#ffa94d"/></svg><span>Deepu Soman<small>IT&nbsp;Leadership &amp; Certifications</small></span></a>
+      <p>Practical writing on IT infrastructure, project delivery and cyber security — 20+ years, learning in public.</p>
+    </div>
+    <div>
+      <p class="footer-heading">Explore</p>
+      <ul>
+        <li><a href="../blog.html">All articles</a></li>
+        <li><a href="../credentials.html">Credentials</a></li>
+        <li><a href="../community.html">Community &amp; talks</a></li>
+        <li><a href="../toolbox.html">Toolbox</a></li>
+        <li><a href="../about.html">About</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-heading">Tracks</p>
+      <ul>
+        <li><a href="../blog.html#t-certs">Certifications</a></li>
+        <li><a href="../blog.html#t-management">Project &amp; Delivery</a></li>
+        <li><a href="../blog.html#t-security">Security &amp; Audit</a></li>
+        <li><a href="../blog.html#t-architecture">Architecture</a></li>
+        <li><a href="../blog.html#t-infrastructure">Infrastructure</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-heading">Connect</p>
+      <ul>
+        <li><a href="https://www.linkedin.com/in/deepusoman/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="../contact.html">Email</a></li>
+        <li><a href="../contact.html">Support</a></li>
+        <li><a href="../rss.xml">RSS feed</a></li>
+        <li><a href="../privacy.html">Privacy policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© <span data-year>2026</span> Deepu Soman. All rights reserved.</span>
+    <span>Built for the community · <a href="../rss.xml">RSS</a> · <a href="../sitemap.xml">Sitemap</a></span>
+  </div>
+</footer>
+
+<div class="consent" id="consent" role="region" aria-label="Cookie consent">
+  <p>This site uses cookies for advertising (Google AdSense) to keep the content free. You can accept or decline — articles work either way.</p>
+  <button class="btn btn-ghost" data-consent="decline">Decline</button>
+  <button class="btn btn-primary" data-consent="accept">Accept</button>
+</div>
+
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/monetize.js"></script>
+</body>
+</html>

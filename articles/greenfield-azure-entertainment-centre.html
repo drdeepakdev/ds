@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Building an Entertainment Centre's IT on Azure From a Blank Sheet — Deepu Soman</title>
+<meta name="description" content="A rare greenfield: designing the full IT for a family entertainment centre on Microsoft Azure, from identity to backup to endpoint security. Why I started with Entra ID and not servers, and what the 2026 landing-zone thinking gets right.">
+<link rel="canonical" href="https://deepusoman.com/articles/greenfield-azure-entertainment-centre.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Building an Entertainment Centre's IT on Azure From a Blank Sheet">
+<meta property="og:description" content="A rare greenfield: designing the full IT for a family entertainment centre on Microsoft Azure, from identity to backup to endpoint security. Why I started with Entra ID and not servers, and what the 2026 landing-zone thinking gets right.">
+<meta property="og:url" content="https://deepusoman.com/articles/greenfield-azure-entertainment-centre.html">
+<meta property="og:image" content="https://deepusoman.com/assets/og-image.png">
+<meta property="article:published_time" content="2026-06-24">
+<meta property="article:author" content="Deepu Soman">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" type="application/rss+xml" title="Deepu Soman — RSS" href="https://deepusoman.com/rss.xml">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230891b2'/><text x='50' y='60' text-anchor='middle' font-family='Arial' font-size='42' font-weight='bold' fill='white'>DS</text><line x1='28' y1='79' x2='72' y2='79' stroke='%23ffa94d' stroke-width='5' stroke-linecap='round'/><line x1='62' y1='79' x2='62' y2='68' stroke='%23ffa94d' stroke-width='5' stroke-linecap='round'/><circle cx='62' cy='64.5' r='5' fill='%23ffa94d'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Building an Entertainment Centre's IT on Azure From a Blank Sheet",
+  "description": "A rare greenfield: designing the full IT for a family entertainment centre on Microsoft Azure, from identity to backup to endpoint security. Why I started with Entra ID and not servers, and what the 2026 landing-zone thinking gets right.",
+  "author": {"@type": "Person", "name": "Deepu Soman", "url": "https://deepusoman.com/about.html"},
+  "datePublished": "2026-06-24",
+  "mainEntityOfPage": "https://deepusoman.com/articles/greenfield-azure-entertainment-centre.html"
+}
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://deepusoman.com/"},{"@type":"ListItem","position":2,"name":"Articles","item":"https://deepusoman.com/blog.html"},{"@type":"ListItem","position":3,"name":"Building an Entertainment Centre's IT on Azure From a Blank Sheet","item":"https://deepusoman.com/articles/greenfield-azure-entertainment-centre.html"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div id="progress"></div>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="../index.html"><svg class="brand-mark" viewBox="0 0 100 100" width="36" height="36" role="img" aria-label="Deepu Soman"><rect width="100" height="100" rx="22" fill="#0891b2"/><text x="50" y="60" text-anchor="middle" font-family="'IBM Plex Sans', Arial, sans-serif" font-size="42" font-weight="700" fill="#ffffff">DS</text><line x1="28" y1="79" x2="72" y2="79" stroke="#ffa94d" stroke-width="5" stroke-linecap="round" opacity="0.9"/><line x1="62" y1="79" x2="62" y2="68" stroke="#ffa94d" stroke-width="5" stroke-linecap="round"/><circle cx="62" cy="64.5" r="5" fill="#ffa94d"/></svg><span>Deepu Soman<small>IT&nbsp;Leadership &amp; Certifications</small></span></a>
+    <button class="icon-btn nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+    <nav class="main-nav" aria-label="Main"><ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../blog.html" class="active">Articles</a></li>
+      <li><a href="../credentials.html">Credentials</a></li>
+      <li><a href="../community.html">Community</a></li>
+      <li><a href="../toolbox.html">Toolbox</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul></nav>
+    <button class="icon-btn theme" data-theme-toggle aria-label="Toggle theme">☀</button>
+  </div>
+</header>
+
+<main id="main" class="wrap article-shell">
+  <article class="article">
+    <div class="article-head">
+      <div class="tags"><span class="tag">Infrastructure &amp; Cloud</span><span class="tag alt">Case Notes</span></div>
+      <h1>Building an Entertainment Centre's IT on Azure From a Blank Sheet</h1>
+      <p class="standfirst">Most IT jobs are archaeology — you inherit someone else's decisions and spend years excavating them. Occasionally you get a blank sheet: a new venue, no legacy, design it right. This is how I built one on Azure, and the order of operations I'd defend to anyone.</p>
+      <div class="byline">
+        <div class="avatar">DS</div>
+        <div><b>Deepu Soman</b><span>Published Jun 24, 2026 · 12 min read</span></div>
+        <div class="share">
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdeepusoman.com%2Farticles%2Fgreenfield-azure-entertainment-centre.html" target="_blank" rel="noopener" aria-label="Share on LinkedIn">in</a>
+          <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdeepusoman.com%2Farticles%2Fgreenfield-azure-entertainment-centre.html" target="_blank" rel="noopener" aria-label="Share on X">𝕏</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="article-body">
+      <p>When I was asked to own the IT for a new family entertainment centre — a National Geographic-branded venue under a large Kuwaiti group — the thing that made me happiest wasn't the brand or the budget. It was one sentence: <em>there's nothing here yet.</em> No decade-old domain controller nobody dares reboot. No spreadsheet that secretly runs the business. No "we've always done it this way." A blank sheet. In twenty years of IT you get a handful of those, and how you spend the first month decides how the next five years feel.</p>
+      <p>I built it on Microsoft Azure. Not because cloud is a religion, but because a new venue with a small on-site team and a need to scale for peak days is close to the ideal case for it — you don't want to be racking servers for a business whose load triples on a public holiday and halves the following Tuesday. Here's the order I did things in, and why the order is the whole point.</p>
+
+      <h2 id="blank">1. A blank sheet is rarer, and heavier, than it sounds</h2>
+      <p>The temptation with greenfield is to start buying and building — spin up the servers, get something running, feel productive. I've learned to sit on my hands for a week first, because every early decision compounds. The domain design you rush in week one is the thing you're still working around in year four. So before a single resource existed, I wrote down what the venue actually needed the technology to <em>do</em>: sell tickets reliably on the busiest day of the year, keep guest and payment data safe, let a lean team administer it without a data-centre, and recover fast when — not if — something broke. Everything below falls out of those four sentences.</p>
+
+      <h2 id="identity">2. Start with identity, not servers</h2>
+      <p>The single most important decision in a modern Azure build is one most people rush past: identity is your security perimeter now, not the network. In the old on-prem world I'd have started with Active Directory and a firewall. In the cloud, I started with Microsoft Entra ID and treated it as the control plane for everything — who exists, what they can reach, under what conditions.</p>
+      <p>That means getting the boring things right before anything fun: named accounts for everyone, no shared logins, multi-factor authentication as a non-negotiable default, conditional access policies that check where and how someone's signing in, and — the one people forget until it bites them — a break-glass account, stored properly, for the day your MFA provider has an outage and you're locked out of your own tenant. The 2026 landing-zone guidance from Microsoft says the same thing in more words: identity is the primary boundary, and role-based access, managed identities and privileged access management are what keep the environment from being quietly wide open. I built it that way because I'd seen the alternative — a flat estate where one compromised login is the whole game.</p>
+      <blockquote><p>In a cloud estate, the question "is this secure?" reduces almost entirely to "is the identity layer done properly?" Get that wrong and nothing downstream can save you.</p></blockquote>
+
+      <div class="ad-slot in-article" data-ad="inArticle">
+        <div class="ad-note">Advertisement<b>In-article ad slot — configure in assets/js/monetize.js</b></div>
+      </div>
+
+      <h2 id="landing">3. A landing zone before the first VM</h2>
+      <p>The phrase "landing zone" sounds like consultant vocabulary, and it can be. Stripped of the jargon it means one honest thing: decide the structure your resources will live in <em>before</em> you start dropping resources into it. Subscriptions and resource groups organised so that production, test and management don't bleed into each other. Naming that a new engineer can read. Tagging so that in a year you can actually answer "what is this thing and what does it cost." Policy that stops someone spinning up an unencrypted, internet-facing database at 2am because it was convenient.</p>
+      <p>I didn't build the enterprise-scale version with dozens of subscriptions — this is a venue, not a bank, and over-engineering the structure would have been its own kind of failure. But the principle held: a small, clean landing zone first, workloads second. The half-day I spent on structure at the start has paid for itself many times over in audits I could actually answer and changes I could make without holding my breath.</p>
+
+      <h2 id="backup">4. Backup is a day-one decision, not a year-two regret</h2>
+      <p>Everyone agrees backup matters. Almost nobody designs for it before they need it, and then a ransomware incident or a fat-fingered deletion turns it into the only thing that matters. I treated recovery as a founding requirement, not a bolt-on. That meant Veeam for the backup workload, with the piece that actually counts in 2026: immutability. A backup an attacker can encrypt or delete along with your live data isn't a backup — it's a second copy of the problem. Immutable, separated backups are the difference between a bad afternoon and a closed business.</p>
+      <p>The test I hold myself to isn't "do we have backups." It's "have I personally watched a restore work, recently, end to end." A backup you've never restored is a hope, not a control. I schedule the drill like I schedule patching, because the worst possible time to discover your restore is broken is the day you're depending on it.</p>
+
+      <h2 id="security">5. The security baseline the venue runs on</h2>
+      <p>With identity and recovery handled, the rest of the security baseline is about closing the doors attackers actually use. For this build that meant Proofpoint sitting in front of email — because email is still the front door for the overwhelming majority of incidents — and Bitdefender on the endpoints, with the whole thing feeding a coherent picture rather than five dashboards nobody watches. I also leaned on what the Microsoft stack gives you natively once identity is done well: conditional access, sign-in risk signals, and the security defaults that a small team can actually operate without a dedicated SOC.</p>
+      <p>The governing idea was proportionality. A family entertainment centre doesn't need a bank's security apparatus, and pretending otherwise would have burned budget and goodwill I needed elsewhere. But it absolutely needs the fundamentals done properly — MFA everywhere, email filtered, endpoints managed, backups immutable, logs somewhere you'd actually look. Most breaches I've studied didn't beat sophisticated defences. They walked through a missing fundamental.</p>
+
+      <h2 id="copilot">6. What 2026 changes about a build like this</h2>
+      <p>If I were starting the same venue today, one thing would be genuinely different, and it's worth naming because it's moving fast. Microsoft has spent this year turning Azure and Copilot into a single control plane for AI across the estate — governance, security and policy enforcement pushed into the identity layer, with security agents landing inside Defender, Entra, Intune and Purview. The upside is real: a small team gets capabilities that used to need a much bigger one. The catch is equally real, and it's the same lesson in new clothes. The moment you let an AI assistant reach across your data, your identity and permissions model stops being an IT hygiene issue and becomes the thing standing between "helpful" and "it just surfaced payroll to the summer intern."</p>
+      <p>Which is why I keep coming back to the same first move. Whether the estate is running virtual machines or AI agents, the build starts in the same place: get identity right, get recovery right, then let everything else stand on top. Design a system you can secure, audit and recover — the features are the easy part once that foundation holds. If you're planning a greenfield build and want a second pair of eyes on the foundations, <a href="../contact.html">get in touch</a>.</p>
+    </div>
+
+    <div class="author-box">
+      <div class="avatar">DS</div>
+      <div>
+        <p class="author-name" style="font-family:var(--font-display);font-weight:620;font-size:1.1rem;margin-bottom:6px;">Deepu Soman</p>
+        <p>IT leader in Kuwait with 20+ years across infrastructure, project &amp; programme management and cyber security. Holds the Microsoft 365 and MCSE cloud/infrastructure tracks, CCNP and 17 more certifications. Learning in public.</p>
+        <div class="links"><a href="../about.html">About</a><a href="https://www.linkedin.com/in/deepusoman/" target="_blank" rel="noopener">LinkedIn</a><a href="../rss.xml">RSS</a></div>
+      </div>
+    </div>
+
+    <nav class="post-nav" aria-label="More articles">
+      <a href="agile-after-pmp-hybrid.html"><span>← Previous</span><b>Agile After PMP: Making Iterative Delivery Land</b></a>
+      <a class="next" href="microsoft-365-security-baseline.html"><span>Next →</span><b>The Microsoft 365 Security Baseline I Stand Up on Day One</b></a>
+    </nav>
+  </article>
+
+  <aside class="article-aside">
+    <div class="aside-sticky">
+      <div class="toc">
+        <h4>In this article</h4>
+        <ol>
+          <li><a href="#blank">1 · A blank sheet is rare</a></li>
+          <li><a href="#identity">2 · Start with identity, not servers</a></li>
+          <li><a href="#landing">3 · A landing zone before the first VM</a></li>
+          <li><a href="#backup">4 · Backup is a day-one decision</a></li>
+          <li><a href="#security">5 · The security baseline</a></li>
+          <li><a href="#copilot">6 · What 2026 changes</a></li>
+        </ol>
+      </div>
+      <div class="ad-slot sidebar-ad" data-ad="sidebar">
+        <div class="ad-note">Advertisement<b>Sidebar ad slot</b></div>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-about">
+      <a class="brand" href="../index.html"><svg class="brand-mark" viewBox="0 0 100 100" width="36" height="36" role="img" aria-label="Deepu Soman"><rect width="100" height="100" rx="22" fill="#0891b2"/><text x="50" y="60" text-anchor="middle" font-family="'IBM Plex Sans', Arial, sans-serif" font-size="42" font-weight="700" fill="#ffffff">DS</text><line x1="28" y1="79" x2="72" y2="79" stroke="#ffa94d" stroke-width="5" stroke-linecap="round" opacity="0.9"/><line x1="62" y1="79" x2="62" y2="68" stroke="#ffa94d" stroke-width="5" stroke-linecap="round"/><circle cx="62" cy="64.5" r="5" fill="#ffa94d"/></svg><span>Deepu Soman<small>IT&nbsp;Leadership &amp; Certifications</small></span></a>
+      <p>Practical writing on IT infrastructure, project delivery and cyber security — 20+ years, learning in public.</p>
+    </div>
+    <div>
+      <p class="footer-heading">Explore</p>
+      <ul>
+        <li><a href="../blog.html">All articles</a></li>
+        <li><a href="../credentials.html">Credentials</a></li>
+        <li><a href="../community.html">Community &amp; talks</a></li>
+        <li><a href="../toolbox.html">Toolbox</a></li>
+        <li><a href="../about.html">About</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-heading">Tracks</p>
+      <ul>
+        <li><a href="../blog.html#t-certs">Certifications</a></li>
+        <li><a href="../blog.html#t-management">Project &amp; Delivery</a></li>
+        <li><a href="../blog.html#t-security">Security &amp; Audit</a></li>
+        <li><a href="../blog.html#t-architecture">Architecture</a></li>
+        <li><a href="../blog.html#t-infrastructure">Infrastructure</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-heading">Connect</p>
+      <ul>
+        <li><a href="https://www.linkedin.com/in/deepusoman/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="../contact.html">Email</a></li>
+        <li><a href="../contact.html">Support</a></li>
+        <li><a href="../rss.xml">RSS feed</a></li>
+        <li><a href="../privacy.html">Privacy policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© <span data-year>2026</span> Deepu Soman. All rights reserved.</span>
+    <span>Built for the community · <a href="../rss.xml">RSS</a> · <a href="../sitemap.xml">Sitemap</a></span>
+  </div>
+</footer>
+
+<div class="consent" id="consent" role="region" aria-label="Cookie consent">
+  <p>This site uses cookies for advertising (Google AdSense) to keep the content free. You can accept or decline — articles work either way.</p>
+  <button class="btn btn-ghost" data-consent="decline">Decline</button>
+  <button class="btn btn-primary" data-consent="accept">Accept</button>
+</div>
+
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/monetize.js"></script>
+</body>
+</html>

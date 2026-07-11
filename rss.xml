@@ -7,6 +7,49 @@
   <language>en</language>
   <atom:link href="https://deepusoman.com/rss.xml" rel="self" type="application/rss+xml"/>
   <lastBuildDate>Thu, 09 Jul 2026 09:00:00 +0000</lastBuildDate>
+
+  <item>
+    <title>Delivering IT Across Three Countries: What Cross-Border Projects Taught Me</title>
+    <link>https://deepusoman.com/articles/delivering-it-across-borders.html</link>
+    <guid>https://deepusoman.com/articles/delivering-it-across-borders.html</guid>
+    <pubDate>Fri, 10 Jul 2026 09:00:00 +0000</pubDate>
+    <description>Telecom rollouts and a national metering programme across Kuwait, Malaysia and India — the parts of cross-border delivery no certification prepares you for.</description>
+  </item>
+  <item>
+    <title>Agile After PMP: Making Iterative Delivery Land in a Waterfall Organisation</title>
+    <link>https://deepusoman.com/articles/agile-after-pmp-hybrid.html</link>
+    <guid>https://deepusoman.com/articles/agile-after-pmp-hybrid.html</guid>
+    <pubDate>Wed, 02 Jul 2026 09:00:00 +0000</pubDate>
+    <description>The hybrid that actually delivers when the board wants a Gantt chart and the work wants iteration.</description>
+  </item>
+  <item>
+    <title>Building an Entertainment Centre's IT on Azure From a Blank Sheet</title>
+    <link>https://deepusoman.com/articles/greenfield-azure-entertainment-centre.html</link>
+    <guid>https://deepusoman.com/articles/greenfield-azure-entertainment-centre.html</guid>
+    <pubDate>Wed, 24 Jun 2026 09:00:00 +0000</pubDate>
+    <description>A rare greenfield build on Microsoft Azure — why I started with Entra ID and not servers.</description>
+  </item>
+  <item>
+    <title>The Microsoft 365 Security Baseline I Stand Up on Day One</title>
+    <link>https://deepusoman.com/articles/microsoft-365-security-baseline.html</link>
+    <guid>https://deepusoman.com/articles/microsoft-365-security-baseline.html</guid>
+    <pubDate>Wed, 18 Jun 2026 09:00:00 +0000</pubDate>
+    <description>Identity, conditional access, email authentication, endpoint posture and the Copilot data problem — the baseline before a tenant carries real work.</description>
+  </item>
+  <item>
+    <title>The Auditor in the Room: How CISA Changed the Way I Run My Own Estate</title>
+    <link>https://deepusoman.com/articles/cisa-auditor-mindset-running-estate.html</link>
+    <guid>https://deepusoman.com/articles/cisa-auditor-mindset-running-estate.html</guid>
+    <pubDate>Wed, 10 Jun 2026 09:00:00 +0000</pubDate>
+    <description>Evidence over assurances, and how the audit discipline holds up against the 2026 threat landscape.</description>
+  </item>
+  <item>
+    <title>Does CCNP Still Matter When Everything's Moving to SASE?</title>
+    <link>https://deepusoman.com/articles/ccnp-in-a-sase-world.html</link>
+    <guid>https://deepusoman.com/articles/ccnp-in-a-sase-world.html</guid>
+    <pubDate>Fri, 05 Jun 2026 09:00:00 +0000</pubDate>
+    <description>Standalone SD-WAN is fading and SASE is the default — is deep networking still worth learning? An honest answer.</description>
+  </item>
   <item>
     <title>The Certification Stack: What 17 Certifications Taught Me About Technology Leadership</title>
     <link>https://deepusoman.com/articles/the-certification-stack.html</link>
